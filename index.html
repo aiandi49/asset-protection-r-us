@@ -113,10 +113,10 @@ body::before {
 .contact-name { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:600; color:var(--ink); margin-bottom:4px; }
 .contact-role { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
 .contact-blurb { font-size:0.86rem; color:var(--ink-mid); line-height:1.75; }
-.contact-links { display:flex; flex-direction:column; gap:8px; justify-content:center; }
-.contact-link { display:flex; align-items:center; justify-content:space-between; padding:11px 16px; background:var(--cream); border:1px solid var(--border); border-radius:7px; text-decoration:none; color:var(--ink); font-size:0.84rem; font-weight:500; transition:all 0.15s; }
-.contact-link:hover { border-color:var(--gold-bdr); background:var(--gold-bg); color:var(--gold); }
-.contact-link .tag { font-family:'DM Mono',monospace; font-size:0.6rem; color:var(--stone); }
+.contact-links { display:grid; grid-template-columns:1fr 1fr; gap:10px; align-content:center; }
+.contact-link { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; padding:20px 16px; background:var(--cream); border:1px solid var(--border); border-radius:9px; text-decoration:none; color:var(--ink); font-size:0.88rem; font-weight:600; text-align:center; transition:all 0.15s; }
+.contact-link:hover { border-color:var(--gold-bdr); background:var(--gold-bg); color:var(--gold); transform:translateY(-2px); }
+.contact-link .tag { font-family:'DM Mono',monospace; font-size:0.58rem; color:var(--stone); letter-spacing:0.08em; }
 
 /* FOOTER */
 .site-footer { position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:32px; border-top:1px solid var(--border-md); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
@@ -300,10 +300,8 @@ body.dark {
       <p class="contact-blurb">AI &amp; blockchain entrepreneur based in Tucson, Arizona, building the MetaEarth ecosystem. If you want a second set of eyes on your own entity structure, or want to talk through which of these four categories fits where you are right now, reach out below.</p>
     </div>
     <div class="contact-links">
-      <a class="contact-link" href="https://calendly.com/director-metaearthinitiative/30min" target="_blank" rel="noopener">Book a 30-Minute Call <span class="tag">CALENDLY</span></a>
       <a class="contact-link" href="mailto:ai.agent.lamar@gmail.com?subject=Inquiry%20from%20Asset%20Protection%20%27R%27%20Us" target="_blank" rel="noopener">Send an Email <span class="tag">MAIL</span></a>
       <a class="contact-link" href="https://linkedin.com/in/lamar-myers-ai" target="_blank" rel="noopener">Connect on LinkedIn <span class="tag">LINKEDIN</span></a>
-      <a class="contact-link" href="https://ai-and-i-brand.vercel.app/" target="_blank" rel="noopener">Visit VTREI / MetaEarth <span class="tag">WEBSITE</span></a>
     </div>
   </div>
 
