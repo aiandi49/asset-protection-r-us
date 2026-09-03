@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prenuptial Agreement — Vance Counter-Proposal (Sample)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean-deep:#0a3d52;
+    --ocean:#0b5f8a;
+    --turquoise:#0f9e94;
+    --aqua:#3fc7c1;
+    --seafoam:#a9e8d4;
+    --seafoam-pale:#e3f7f0;
+    --ink:#0e2a2f;
+    --ink-soft:#3a5459;
+    --paper:#ffffff;
+    --paper-tint:#f5fbfa;
+    --line:#d3e8e4;
+    --shadow:0 20px 50px -25px rgba(10,61,82,0.35);
+    --radius:18px;
+    --maxw:760px;
+  }
+  html[data-theme="dark"]{
+    --ocean-deep:#06222f;
+    --ocean:#0a4863;
+    --turquoise:#0d8b82;
+    --aqua:#38b3ae;
+    --seafoam:#3f7f70;
+    --seafoam-pale:#123230;
+    --ink:#eaf6f4;
+    --ink-soft:#b6d4cf;
+    --paper:#0c2226;
+    --paper-tint:#0f2b2f;
+    --line:#1e4145;
+    --shadow:0 20px 50px -25px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper-tint);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    transition:background .3s ease, color .3s ease;
+  }
+  .bg-watermark{
+    position:relative;
+  }
+  .bg-watermark::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.05;
+    background-image:repeating-linear-gradient(-35deg, transparent 0 90px, currentColor 90px 91px, transparent 91px 220px);
+    color:var(--ocean);
+  }
+
+  /* ---- Top bar ---- */
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    padding:14px 20px;
+    padding-top:calc(14px + env(safe-area-inset-top));
+    background:rgba(255,255,255,0.82);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  html[data-theme="dark"] .topbar{ background:rgba(12,34,38,0.82); }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:.01em;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .brand{ color:var(--seafoam); }
+  .brand .mark{
+    width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg, var(--turquoise), var(--ocean));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;font-weight:700;font-family:'Fraunces',serif;
+    flex-shrink:0;
+  }
+  .theme-toggle{
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:999px;
+    padding:8px 16px;
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .theme-toggle:hover{ border-color:var(--turquoise); }
+  .theme-toggle:focus-visible{ outline:2px solid var(--turquoise); outline-offset:2px; }
+
+  /* ---- Disclaimer band ---- */
+  .disclaimer{
+    background:linear-gradient(90deg, var(--ocean-deep), var(--ocean));
+    color:#eafffb;
+    text-align:center;
+    padding:12px 20px;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+  .disclaimer strong{ font-weight:700; }
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 550px at 15% -10%, rgba(169,232,212,0.55), transparent 60%),
+      radial-gradient(ellipse 800px 550px at 100% 10%, rgba(63,199,193,0.4), transparent 55%),
+      linear-gradient(180deg, var(--turquoise) 0%, var(--ocean) 100%);
+    color:#f2fdfb;
+    padding:56px 24px 60px;
+    text-align:center;
+  }
+  .hero .seal{
+    width:74px;height:74px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.55);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:.03em;
+    background:rgba(255,255,255,0.06);
+  }
+  .hero .kicker{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    font-size:14.5px;
+    color:var(--seafoam);
+    margin:0 0 14px;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(30px,7vw,46px);
+    line-height:1.08;
+    margin:0 0 16px;
+    letter-spacing:.01em;
+  }
+  .hero .parties{
+    font-family:'Fraunces', serif;
+    font-size:clamp(15px,3.4vw,18px);
+    font-weight:500;
+    color:#eafffb;
+    margin:0 0 22px;
+  }
+  .hero .parties .amp{
+    color:var(--aqua);
+    font-style:italic;
+    margin:0 10px;
+  }
+  .hero .meta{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px 28px;
+    font-size:12.5px;
+    color:#cdeee8;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .hero .meta span{ display:block; }
+  .hero .meta b{ display:block; color:#fff; font-weight:600; font-size:13px; margin-bottom:2px;}
+
+  /* ---- Container ---- */
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 22px; }
+
+  /* ---- Glance cards ---- */
+  .glance{ padding:48px 0 8px; }
+  .glance h2{ text-align:center; }
+  .cards{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+    margin-top:26px;
+  }
+  @media(min-width:640px){ .cards{ grid-template-columns:1fr 1fr; } }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 22px 24px;
+    box-shadow:var(--shadow);
+  }
+  .card .tag{
+    display:inline-block;
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:var(--turquoise);
+    background:var(--seafoam-pale);
+    padding:4px 11px;
+    border-radius:999px;
+    margin-bottom:12px;
+  }
+  .card{ text-align:center; }
+  .card h3{
+    font-family:'Fraunces', serif;
+    font-size:18px;
+    font-weight:600;
+    margin:0 0 8px;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .card h3{ color:var(--seafoam); }
+  .card p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
+
+  /* ---- Section heading ---- */
+  h2.section-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(24px,4.5vw,30px);
+    color:var(--ocean-deep);
+    margin:0 0 6px;
+  }
+  html[data-theme="dark"] h2.section-title{ color:var(--seafoam); }
+  .section-sub{
+    text-align:center;
+    color:var(--ink-soft);
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    font-size:15px;
+    margin:0 0 8px;
+  }
+
+  /* ---- Articles ---- */
+  .articles{ padding:52px 0 20px; }
+  .article{
+    border-top:1px solid var(--line);
+    padding:34px 0;
+  }
+  .article:first-of-type{ border-top:2px solid var(--turquoise); }
+  .article-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--turquoise);
+    margin:0 0 6px;
+    text-align:center;
+  }
+  .article h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(19px,3.6vw,23px);
+    color:var(--ink);
+    margin:0 0 14px;
+    text-align:center;
+  }
+  .article p{
+    font-family:'Source Serif 4', serif;
+    font-size:16px;
+    color:var(--ink);
+    text-align:center;
+    margin:0 auto 14px;
+    max-width:66ch;
+  }
+  .article p:last-child{ margin-bottom:0; }
+  .article ul{
+    text-align:left;
+    padding-left:1.2em;
+    margin:14px auto;
+    max-width:60ch;
+    font-family:'Source Serif 4', serif;
+    font-size:15.5px;
+  }
+  .article li{ margin-bottom:8px; }
+  .article .callout{
+    background:var(--seafoam-pale);
+    border-left:3px solid var(--turquoise);
+    border-radius:4px;
+    padding:14px 18px;
+    font-size:14.5px;
+    font-family:'Inter',sans-serif;
+    color:var(--ink-soft);
+    margin-top:16px;
+    text-align:center;
+  }
+  @media(min-width:768px){
+    .card{ text-align:left; }
+    .article-num, .article h3, .article p{ text-align:left; margin-left:0; margin-right:0; }
+    .article .callout{ text-align:left; }
+  }
+
+  /* ---- Signature block ---- */
+  .signatures{
+    padding:20px 0 60px;
+  }
+  .sig-box{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:36px 26px;
+    margin-top:24px;
+  }
+  .sig-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px;
+    margin-top:28px;
+  }
+  @media(min-width:640px){ .sig-grid{ grid-template-columns:1fr 1fr; } }
+  .sig-line{
+    border-bottom:1.5px solid var(--ink-soft);
+    height:44px;
+  }
+  .sig-label{
+    margin-top:10px;
+    font-size:13px;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+  .sig-label b{ display:block; color:var(--ink); font-size:14.5px; font-family:'Fraunces',serif; font-weight:600; margin-bottom:2px;}
+  @media(min-width:768px){ .sig-label{ text-align:left; } }
+
+  /* ---- Footer ---- */
+  footer{
+    background:var(--ocean-deep);
+    color:#cdeee8;
+    text-align:center;
+    padding:34px 22px 40px;
+    padding-bottom:calc(40px + env(safe-area-inset-bottom));
+  }
+  footer .fm{
+    font-family:'Fraunces', serif;
+    color:#fff;
+    font-size:15px;
+    margin:0 0 8px;
+  }
+  footer p{ font-size:12.5px; max-width:520px; margin:0 auto; color:#a9d6cd; }
+  footer a{ color:var(--seafoam); }
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="mark">S&amp;S</span> Sterling &amp; Sterling — Sample</div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <span id="themeIcon">🌙</span><span id="themeLabel">Dark</span>
+  </button>
+</div>
+
+<div class="disclaimer">
+  <strong>Mock document.</strong> Fictional sample for illustration only — not a real or legally binding agreement.
+</div>
+
+<header class="hero">
+  <div class="seal">S&amp;S</div>
+  <p class="kicker">Counter-proposal prepared for Liam Vance</p>
+  <h1>Prenuptial<br>Agreement</h1>
+  <p class="parties">Liam Vance <span class="amp">&amp;</span> Khloe Davenport</p>
+  <div class="meta">
+    <span><b>Status</b>Final offer</span>
+    <span><b>Prepared by</b>Sterling &amp; Sterling</span>
+    <span><b>Reference</b>Sample No. SS-0417B</span>
+  </div>
+</header>
+
+<main class="bg-watermark">
+
+  <section class="glance wrap">
+    <h2 class="section-title" style="text-align:center;">Key terms, at a glance</h2>
+    <p class="section-sub">The four provisions that shaped the entire negotiation</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Separate property</span>
+        <h3>Both estates stay protected — equally</h3>
+        <p>Liam's family inheritance, business holdings, and personal assets remain his own. Khloe's trust, future inheritance, and personal property remain hers. The same rule, applied to both sides.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Marital property</span>
+        <h3>A true fifty-fifty</h3>
+        <p>Income and assets built together during the marriage are shared equally between both spouses — in both directions, not just one.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Spousal support</span>
+        <h3>Mutual, and calculated fairly</h3>
+        <p>Either spouse may seek support if the marriage ends, based on its length and each party's needs — the same standard applied to both of them.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Primary residence</span>
+        <h3>Decided by contribution, not assumption</h3>
+        <p>Ownership follows what each spouse actually put in, with a guaranteed minimum settlement for whichever spouse doesn't keep the home.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="articles wrap">
+
+    <div class="article">
+      <p class="article-num">Article I</p>
+      <h3>Purpose and intent</h3>
+      <p>This agreement is entered into in contemplation of the marriage of Liam Vance ("Prospective Husband") and Khloe Davenport ("Prospective Wife"). It is offered as a direct counterpart to an earlier draft proposed on the Prospective Wife's behalf, mirroring its structure and its clauses — applied equally, in both directions, to both parties. Its purpose is to protect what each spouse brings into the marriage while sharing fairly in what they build together.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article II</p>
+      <h3>Disclosure of assets</h3>
+      <p>In the interest of full transparency, both parties disclose the following as subject to this agreement:</p>
+      <ul>
+        <li>The Prospective Husband's architectural practice and its ongoing projects</li>
+        <li>The Prospective Husband's family holdings and inheritance, including interests in Vance Corporation</li>
+        <li>The Prospective Husband's personal investment portfolio</li>
+        <li>The Prospective Wife's trust fund and anticipated future inheritance</li>
+        <li>The Prospective Wife's condominium and personal property</li>
+      </ul>
+      <p>Both parties affirm that this disclosure reflects a complete and shared understanding of the assets each brings into the marriage.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article III</p>
+      <h3>Separate property</h3>
+      <p>All property listed in Article II, along with any future appreciation in its value, shall remain the sole and separate property of whichever party owned it before the marriage. This protection applies equally: the Prospective Husband's holdings are shielded exactly as the Prospective Wife's are, with no distinction in how either estate is treated.</p>
+      <div class="callout">This article is deliberately a mirror. Every protection the original draft gave one family, this version gives both people — because a partnership only works when the same rules apply to everyone in it.</div>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IV</p>
+      <h3>Marital property and division of assets</h3>
+      <p>Any income, business, or asset generated jointly by either party during the course of the marriage shall be deemed marital property, divided equally between both spouses. Appreciation in the value of each party's separate property shall remain their own individually, with the same standard applied without exception to either spouse.</p>
+      <p>Where one spouse's separate assets contribute directly to the marriage's shared standard of living, that contribution shall be acknowledged in any future division, regardless of which spouse made it.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article V</p>
+      <h3>Spousal support</h3>
+      <p>Neither party waives the right to seek spousal support. Should the marriage end, either spouse may request support, calculated according to the length of the marriage, each party's financial standing at the time, and their contributions — financial and otherwise — to the household and to one another's careers.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VI</p>
+      <h3>Primary residence</h3>
+      <p>In the event of divorce or separation, the disposition of the couple's primary residence shall be determined by each party's financial and non-financial contribution to its purchase and upkeep. Whichever spouse does not retain the residence shall receive a guaranteed minimum settlement reflecting their share, ensuring neither party is left without recourse.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VII</p>
+      <h3>Business ventures during marriage</h3>
+      <p>Any business enterprise founded, joined, or invested in by either party during the marriage shall be evaluated on its own terms — accounting for each spouse's labor, expertise, and capital contribution — rather than defaulting to an automatic division that ignores who actually built it.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VIII</p>
+      <h3>Amendment, severability &amp; governing law</h3>
+      <p>This agreement may be amended only by a written instrument signed by both parties. Should any provision be held unenforceable, the remaining provisions shall continue in full force. This agreement shall be governed by the laws of the state in which it is executed, with disputes subject to neutral, mutually agreed arbitration rather than arbitration controlled by either party's own firm.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IX</p>
+      <h3>Acknowledgment</h3>
+      <p>Each party acknowledges that they have had the opportunity to review this agreement, that they enter into it freely and without duress, and that they have been advised to seek independent legal counsel prior to signing. This offer stands regardless of either family's approval, and is extended in good faith as the foundation for an honest partnership.</p>
+    </div>
+
+  </section>
+
+  <section class="signatures wrap">
+    <h2 class="section-title" style="text-align:center;">Signatures</h2>
+    <p class="section-sub" style="max-width:480px;margin-left:auto;margin-right:auto;">This sample is unsigned and non-binding. A real prenuptial agreement should be signed only after independent review by each party's own attorney.</p>
+    <div class="sig-box">
+      <div class="sig-grid">
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Liam Vance</b>Prospective Husband — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Khloe Davenport</b>Prospective Wife — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Witness</b>Print name &amp; date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Annalise Sterling, Esq.</b>Sterling &amp; Sterling — Date</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="fm">Sterling &amp; Sterling</p>
+  <p>This is a fictional sample document created for illustrative purposes, inspired by a dramatized story. It is not legal advice and creates no legal rights or obligations. Anyone drafting a real prenuptial agreement should retain a licensed family-law attorney in their jurisdiction.</p>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    icon.textContent = t === 'dark' ? '☀️' : '🌙';
+    label.textContent = t === 'dark' ? 'Light' : 'Dark';
+  }
+
+  const stored = null; // no localStorage in this environment
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(prefersDark ? 'dark' : 'light');
+
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+</script>
+
+</body>
+</html>
