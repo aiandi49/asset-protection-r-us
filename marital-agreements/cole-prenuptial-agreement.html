@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prenuptial Agreement — The Cole Agreement, As Signed (Sample)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean-deep:#0a3d52;
+    --ocean:#0b5f8a;
+    --turquoise:#0f9e94;
+    --aqua:#3fc7c1;
+    --seafoam:#a9e8d4;
+    --seafoam-pale:#e3f7f0;
+    --ink:#0e2a2f;
+    --ink-soft:#3a5459;
+    --paper:#ffffff;
+    --paper-tint:#f5fbfa;
+    --line:#d3e8e4;
+    --shadow:0 20px 50px -25px rgba(10,61,82,0.35);
+    --radius:18px;
+    --maxw:760px;
+  }
+  html[data-theme="dark"]{
+    --ocean-deep:#06222f;
+    --ocean:#0a4863;
+    --turquoise:#0d8b82;
+    --aqua:#38b3ae;
+    --seafoam:#3f7f70;
+    --seafoam-pale:#123230;
+    --ink:#eaf6f4;
+    --ink-soft:#b6d4cf;
+    --paper:#0c2226;
+    --paper-tint:#0f2b2f;
+    --line:#1e4145;
+    --shadow:0 20px 50px -25px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper-tint);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    transition:background .3s ease, color .3s ease;
+  }
+  .bg-watermark{
+    position:relative;
+  }
+  .bg-watermark::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.05;
+    background-image:repeating-linear-gradient(-35deg, transparent 0 90px, currentColor 90px 91px, transparent 91px 220px);
+    color:var(--ocean);
+  }
+
+  /* ---- Top bar ---- */
+  .topbar{
+    position:sticky;
+    top:0;
+    z-index:50;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    padding:14px 20px;
+    padding-top:calc(14px + env(safe-area-inset-top));
+    background:rgba(255,255,255,0.82);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  html[data-theme="dark"] .topbar{ background:rgba(12,34,38,0.82); }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:.01em;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .brand{ color:var(--seafoam); }
+  .brand .mark{
+    width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg, var(--turquoise), var(--ocean));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;font-weight:700;font-family:'Fraunces',serif;
+    flex-shrink:0;
+  }
+  .theme-toggle{
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    border-radius:999px;
+    padding:8px 16px;
+    font-family:'Inter',sans-serif;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .theme-toggle:hover{ border-color:var(--turquoise); }
+  .theme-toggle:focus-visible{ outline:2px solid var(--turquoise); outline-offset:2px; }
+
+  /* ---- Disclaimer band ---- */
+  .disclaimer{
+    background:linear-gradient(90deg, var(--ocean-deep), var(--ocean));
+    color:#eafffb;
+    text-align:center;
+    padding:12px 20px;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+  .disclaimer strong{ font-weight:700; }
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 20% -10%, rgba(63,199,193,0.35), transparent 60%),
+      radial-gradient(ellipse 700px 500px at 100% 0%, rgba(169,232,212,0.4), transparent 55%),
+      linear-gradient(180deg, var(--ocean-deep) 0%, var(--ocean) 100%);
+    color:#f2fdfb;
+    padding:56px 24px 60px;
+    text-align:center;
+  }
+  .hero .seal{
+    width:74px;height:74px;
+    margin:0 auto 22px;
+    border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.55);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:.03em;
+    background:rgba(255,255,255,0.06);
+  }
+  .hero .kicker{
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    font-size:14.5px;
+    color:var(--seafoam);
+    margin:0 0 14px;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(30px,7vw,46px);
+    line-height:1.08;
+    margin:0 0 16px;
+    letter-spacing:.01em;
+  }
+  .hero .parties{
+    font-family:'Fraunces', serif;
+    font-size:clamp(15px,3.4vw,18px);
+    font-weight:500;
+    color:#eafffb;
+    margin:0 0 22px;
+  }
+  .hero .parties .amp{
+    color:var(--aqua);
+    font-style:italic;
+    margin:0 10px;
+  }
+  .hero .meta{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px 28px;
+    font-size:12.5px;
+    color:#cdeee8;
+    max-width:520px;
+    margin:0 auto;
+  }
+  .hero .meta span{ display:block; }
+  .hero .meta b{ display:block; color:#fff; font-weight:600; font-size:13px; margin-bottom:2px;}
+
+  /* ---- Container ---- */
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 22px; }
+
+  /* ---- Glance cards ---- */
+  .glance{ padding:48px 0 8px; }
+  .glance h2{ text-align:center; }
+  .cards{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+    margin-top:26px;
+  }
+  @media(min-width:640px){ .cards{ grid-template-columns:1fr 1fr; } }
+  .card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:22px 22px 24px;
+    box-shadow:var(--shadow);
+  }
+  .card .tag{
+    display:inline-block;
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:var(--turquoise);
+    background:var(--seafoam-pale);
+    padding:4px 11px;
+    border-radius:999px;
+    margin-bottom:12px;
+  }
+  .card{ text-align:center; }
+  .card h3{
+    font-family:'Fraunces', serif;
+    font-size:18px;
+    font-weight:600;
+    margin:0 0 8px;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .card h3{ color:var(--seafoam); }
+  .card p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
+
+  /* ---- Section heading ---- */
+  h2.section-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(24px,4.5vw,30px);
+    color:var(--ocean-deep);
+    margin:0 0 6px;
+  }
+  html[data-theme="dark"] h2.section-title{ color:var(--seafoam); }
+  .section-sub{
+    text-align:center;
+    color:var(--ink-soft);
+    font-family:'Source Serif 4', serif;
+    font-style:italic;
+    font-size:15px;
+    margin:0 0 8px;
+  }
+
+  /* ---- Articles ---- */
+  .articles{ padding:52px 0 20px; }
+  .article{
+    border-top:1px solid var(--line);
+    padding:34px 0;
+  }
+  .article:first-of-type{ border-top:2px solid var(--turquoise); }
+  .article-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--turquoise);
+    margin:0 0 6px;
+    text-align:center;
+  }
+  .article h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(19px,3.6vw,23px);
+    color:var(--ink);
+    margin:0 0 14px;
+    text-align:center;
+  }
+  .article p{
+    font-family:'Source Serif 4', serif;
+    font-size:16px;
+    color:var(--ink);
+    text-align:center;
+    margin:0 auto 14px;
+    max-width:66ch;
+  }
+  .article p:last-child{ margin-bottom:0; }
+  .article ul{
+    text-align:left;
+    padding-left:1.2em;
+    margin:14px auto;
+    max-width:60ch;
+    font-family:'Source Serif 4', serif;
+    font-size:15.5px;
+  }
+  .article li{ margin-bottom:8px; }
+  .article .callout{
+    background:var(--seafoam-pale);
+    border-left:3px solid var(--turquoise);
+    border-radius:4px;
+    padding:14px 18px;
+    font-size:14.5px;
+    font-family:'Inter',sans-serif;
+    color:var(--ink-soft);
+    margin-top:16px;
+    text-align:center;
+  }
+  @media(min-width:768px){
+    .card{ text-align:left; }
+    .article-num, .article h3, .article p{ text-align:left; margin-left:0; margin-right:0; }
+    .article .callout{ text-align:left; }
+  }
+
+  /* ---- Signature block ---- */
+  .signatures{
+    padding:20px 0 60px;
+  }
+  .sig-box{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:36px 26px;
+    margin-top:24px;
+  }
+  .sig-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px;
+    margin-top:28px;
+  }
+  @media(min-width:640px){ .sig-grid{ grid-template-columns:1fr 1fr; } }
+  .sig-line{
+    border-bottom:1.5px solid var(--ink-soft);
+    height:44px;
+  }
+  .sig-label{
+    margin-top:10px;
+    font-size:13px;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+  .sig-label b{ display:block; color:var(--ink); font-size:14.5px; font-family:'Fraunces',serif; font-weight:600; margin-bottom:2px;}
+  @media(min-width:768px){ .sig-label{ text-align:left; } }
+
+  /* ---- Footer ---- */
+  footer{
+    background:var(--ocean-deep);
+    color:#cdeee8;
+    text-align:center;
+    padding:34px 22px 40px;
+    padding-bottom:calc(40px + env(safe-area-inset-bottom));
+  }
+  footer .fm{
+    font-family:'Fraunces', serif;
+    color:#fff;
+    font-size:15px;
+    margin:0 0 8px;
+  }
+  footer p{ font-size:12.5px; max-width:520px; margin:0 auto; color:#a9d6cd; }
+  footer a{ color:var(--seafoam); }
+
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="mark">R&amp;C</span> Reeves &amp; Calloway LLP — Sample</div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <span id="themeIcon">🌙</span><span id="themeLabel">Dark</span>
+  </button>
+</div>
+
+<div class="disclaimer">
+  <strong>Mock document.</strong> Fictional sample for illustration only — not a real or legally binding agreement.
+</div>
+
+<header class="hero">
+  <div class="seal">R&amp;C</div>
+  <p class="kicker">Prepared for Ethan Cole</p>
+  <h1>Prenuptial<br>Agreement</h1>
+  <p class="parties">Ethan Cole <span class="amp">&amp;</span> Vanessa Carter</p>
+  <div class="meta">
+    <span><b>Status</b>Signed &amp; in effect</span>
+    <span><b>Prepared by</b>Reeves &amp; Calloway LLP</span>
+    <span><b>Reference</b>Sample No. RC-0186</span>
+  </div>
+</header>
+
+<main class="bg-watermark">
+
+  <section class="glance wrap">
+    <h2 class="section-title" style="text-align:center;">Key terms, at a glance</h2>
+    <p class="section-sub">The four provisions she signed without reading</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Premarital holdings</span>
+        <h3>Corporate holdings stay solely his</h3>
+        <p>Ethan's corporate holdings, equity shares, intellectual property, and affiliated business interests — all acquired before the marriage — remain his sole property, untouched by the marriage.</p>
+      </div>
+      <div class="card">
+        <span class="tag">The residence</span>
+        <h3>Held in trust, outside the marriage</h3>
+        <p>The marital home sits inside a trust structure that predates the marriage. On paper, that means it was never jointly owned — even after years of living there together.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Personal income</span>
+        <h3>Each spouse keeps their own</h3>
+        <p>Vanessa retains her personal assets and the income she earns during the marriage. That part of the agreement was never in dispute.</p>
+      </div>
+      <div class="card">
+        <span class="tag">The signing itself</span>
+        <h3>A five-minute meeting, called "a formality"</h3>
+        <p>Nothing in the document was hidden. What was missing was time, explanation, and anyone slowing the room down long enough for her to actually read it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="articles wrap">
+
+    <div class="article">
+      <p class="article-num">Article I</p>
+      <h3>Purpose and intent</h3>
+      <p>This agreement is entered into in contemplation of the marriage of Ethan Cole ("Prospective Husband") and Vanessa Carter ("Prospective Wife"). Its purpose is to define, in advance, the ownership and division of assets held by each party prior to the marriage, and to establish which property will remain separate regardless of the length or outcome of the marriage.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article II</p>
+      <h3>Disclosure of assets</h3>
+      <p>The Prospective Husband discloses the following as premarital property subject to protection under this agreement:</p>
+      <ul>
+        <li>Corporate holdings and equity shares held prior to the marriage</li>
+        <li>Intellectual property developed prior to the marriage</li>
+        <li>Affiliated business interests and related entities</li>
+        <li>The marital residence, held under a trust structure established before the marriage</li>
+      </ul>
+      <p>This disclosure is technically complete. It does not, however, include a plain-language summary, a valuation of these holdings, or any requirement that the Prospective Wife's own counsel review it before signing.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article III</p>
+      <h3>Separate property</h3>
+      <p>All property listed in Article II, together with any future appreciation in its value, shall remain the sole and separate property of Ethan Cole. This designation survives the marriage regardless of its duration and is not affected by any joint use, joint decision-making, or joint appearance of ownership during the marriage.</p>
+      <div class="callout">This is the paragraph she signed without reading. Nothing in it was hidden — the corporate holdings, the trust, the residence were all named in plain sight. What was missing wasn't disclosure. It was a conversation.</div>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IV</p>
+      <h3>Marital residence</h3>
+      <p>The marital residence is held under a trust structure predating the marriage and is not subject to division upon separation or divorce, regardless of either party's financial or personal contribution to its selection, furnishing, or upkeep during the marriage.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article V</p>
+      <h3>Personal income and assets during marriage</h3>
+      <p>Each party shall retain sole ownership of their own personal income, earnings, and assets acquired during the marriage through their own individual effort. Neither party's personal earnings become jointly owned property by virtue of the marriage alone.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VI</p>
+      <h3>Effect upon dissolution</h3>
+      <p>In the event of divorce, this agreement shall govern the division of assets as follows: the Prospective Wife retains her personal assets and income; any property, holdings, or corporate structures belonging to the Prospective Husband under Articles II through IV remain entirely separate and are not subject to division.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VII</p>
+      <h3>Signing acknowledgment</h3>
+      <p>Both parties acknowledge that they have had the opportunity to seek independent legal counsel prior to signing. This agreement does not require proof that either party exercised that opportunity, nor does it require a waiting period between presentation of the document and signature.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VIII</p>
+      <h3>Amendment, severability &amp; governing law</h3>
+      <p>This agreement may be amended only by a written instrument signed by both parties. Should any provision be held unenforceable, the remaining provisions shall continue in full force. This agreement shall be governed by the laws of the state in which it is executed.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IX</p>
+      <h3>Acknowledgment</h3>
+      <p>Each party acknowledges that they have reviewed this agreement and enter into it freely. The Prospective Wife's signature below reflects her agreement to these terms as presented, whether or not she read each provision in full before signing.</p>
+    </div>
+
+  </section>
+
+  <section class="signatures wrap">
+    <h2 class="section-title" style="text-align:center;">Signatures</h2>
+    <p class="section-sub" style="max-width:480px;margin-left:auto;margin-right:auto;">This sample is unsigned and non-binding. A real prenuptial agreement should be signed only after independent review by each party's own attorney.</p>
+    <div class="sig-box">
+      <div class="sig-grid">
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Ethan Cole</b>Prospective Husband — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Vanessa Carter</b>Prospective Wife — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Witness</b>Print name &amp; date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Daniel Reeves, Esq.</b>Reeves &amp; Calloway LLP — Date</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="fm">Reeves &amp; Calloway LLP</p>
+  <p>This is a fictional sample document created for illustrative purposes, inspired by a dramatized story. It is not legal advice and creates no legal rights or obligations. Anyone drafting a real prenuptial agreement should retain a licensed family-law attorney in their jurisdiction.</p>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    icon.textContent = t === 'dark' ? '☀️' : '🌙';
+    label.textContent = t === 'dark' ? 'Light' : 'Dark';
+  }
+
+  const stored = null; // no localStorage in this environment
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(prefersDark ? 'dark' : 'light');
+
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+</script>
+
+</body>
+</html>
