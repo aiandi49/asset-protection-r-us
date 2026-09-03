@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Founder's Roadmap — Structure Before Scale</title>
+<meta name="theme-color" content="#0B1E22"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream:     #F2F9F9;
+  --warm:      #E4F1F1;
+  --stone:     #9FC8CB;
+  --ink:       #10282A;
+  --ink-mid:   #3E5C5E;
+  --ink-mute:  #6E9294;
+  --gold:      #0FA3A8;
+  --gold-lt:   #4ECDC4;
+  --gold-bg:   rgba(15,163,168,0.09);
+  --gold-bdr:  rgba(15,163,168,0.28);
+  --white:     #FFFFFF;
+  --border:    rgba(20,80,90,0.12);
+  --border-md: rgba(20,80,90,0.22);
+  --shadow-sm: 0 2px 8px rgba(10,60,70,0.07);
+  --shadow-md: 0 8px 32px rgba(10,60,70,0.11);
+  --shadow-lg: 0 20px 60px rgba(10,60,70,0.14);
+  --r: 10px;
+  --green:     #2D9C7F;
+  --green-bg:  #E4F7F1;
+  --cyan:      #1868A8;
+  --cyan-bg:   rgba(24,104,168,0.08);
+  --magenta:   #2E86AB;
+  --magenta-bg:rgba(46,134,171,0.08);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body {
+  background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif;
+  font-weight:400; line-height:1.65;
+}
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(15,163,168,0.08) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+.page { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:0 32px 100px; }
+
+/* HERO */
+.hero { padding:64px 0 44px; border-bottom:1px solid var(--border-md); margin-bottom:52px; text-align:left; animation:fadeDown 0.8s ease both; }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+.hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,7vw,5rem); font-weight:600; line-height:1.02; color:var(--ink); letter-spacing:-0.01em; margin-bottom:18px; }
+.hero-name .accent { color:var(--gold); font-style:italic; }
+.hero-tagline { font-size:1.02rem; color:var(--ink-mute); font-weight:300; max-width:640px; font-style:italic; }
+
+/* DISCLAIMER STRIP */
+.disclaimer { background:var(--gold-bg); border:1px solid var(--gold-bdr); border-radius:var(--r); padding:16px 20px; margin-bottom:48px; font-size:0.82rem; color:var(--ink-mid); line-height:1.7; }
+.disclaimer strong { color:var(--ink); }
+
+/* SECTION LABEL */
+.section-label { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); font-weight:500; margin:56px 0 14px; display:flex; align-items:center; gap:14px; }
+.section-label::after { content:''; flex:1; height:1px; background:var(--border-md); }
+
+/* SECTION DIVIDERS */
+.section-divider { margin:72px 0 0; padding:24px 32px; background:linear-gradient(90deg, var(--gold-bg), transparent); border-top:2px solid var(--gold); border-radius:0 var(--r) var(--r) 0; display:flex; align-items:center; gap:20px; animation:fadeUp 0.5s ease both; }
+.section-divider-label { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); white-space:nowrap; }
+.section-divider-sep { width:1px; height:28px; background:var(--border-md); }
+.section-divider-title { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:500; color:var(--ink); letter-spacing:0.03em; }
+.section-divider-line { flex:1; height:1px; background:linear-gradient(90deg, var(--border-md), transparent); }
+
+/* TOC */
+.toc-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.toc-item { display:flex; align-items:center; gap:12px; padding:10px 14px; background:var(--cream); border:1px solid var(--border); border-radius:7px; text-decoration:none; color:var(--ink-mid); font-size:0.78rem; transition:all 0.18s; }
+.toc-item:hover { background:var(--warm); border-color:var(--gold-bdr); color:var(--ink); }
+.toc-num { font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--gold); font-weight:600; letter-spacing:0.08em; white-space:nowrap; }
+.toc-title { font-weight:500; color:var(--ink); }
+
+/* CARDS */
+.card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); margin-bottom:16px; box-shadow:var(--shadow-sm); overflow:visible; animation:fadeUp 0.5s ease both; transition:box-shadow 0.2s,border-color 0.2s; }
+.card:hover { box-shadow:var(--shadow-md); border-color:var(--border-md); }
+.card.gold-top { border-top:3px solid var(--gold); }
+.card-header { padding:16px 22px 14px; border-bottom:1px solid var(--border); background:var(--warm); display:flex; align-items:center; gap:12px; border-radius:var(--r) var(--r) 0 0; flex-wrap:wrap; }
+.card-dots { display:flex; gap:5px; }
+.card-dot { width:10px; height:10px; border-radius:50%; }
+.card-dot.r { background:#ff5f57; }
+.card-dot.y { background:#febc2e; }
+.card-dot.g { background:#28c840; }
+.card-filename { font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--ink-mute); letter-spacing:0.04em; flex:1; }
+.card-badge { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; padding:3px 10px; border-radius:100px; white-space:nowrap; }
+.badge-gold    { background:var(--gold-bg);    color:var(--gold);    border:1px solid var(--gold-bdr); }
+.badge-cyan    { background:var(--cyan-bg);    color:var(--cyan);    border:1px solid rgba(26,107,122,0.25); }
+.badge-green   { background:var(--green-bg);   color:var(--green);   border:1px solid rgba(45,122,79,0.25); }
+.badge-magenta { background:var(--magenta-bg); color:var(--magenta); border:1px solid rgba(139,58,98,0.25); }
+.card-body { padding:24px; }
+.card-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; color:var(--ink); margin-bottom:10px; }
+.card-desc { font-size:0.9rem; color:var(--ink-mid); line-height:1.75; margin-bottom:18px; }
+.card-subtitle { font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--stone); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; margin-top:20px; }
+.card-subtitle:first-of-type { margin-top:0; }
+
+/* APPLIED-TO-YOU CALLOUT */
+.applied-box { margin-bottom:18px; padding:14px 16px; background:var(--warm); border:1px solid var(--border); border-radius:8px; font-size:0.85rem; color:var(--ink-mid); line-height:1.7; }
+.applied-box strong { display:block; font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+
+/* NUMBERED STEPS */
+.steps-list { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:4px; counter-reset:item; }
+.steps-list li { display:flex; align-items:flex-start; gap:12px; font-size:0.86rem; color:var(--ink-mid); padding:11px 14px; background:var(--cream); border:1px solid var(--border); border-radius:7px; counter-increment:item; line-height:1.6; }
+.steps-list li::before { content:counter(item); background:var(--gold-bg); border:1px solid var(--gold-bdr); color:var(--gold); border-radius:50%; width:22px; height:22px; min-width:22px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:600; margin-top:1px; }
+
+/* PROS / CONS */
+.pc-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+.pc-box { border-radius:8px; padding:14px 16px; border:1px solid var(--border); background:var(--cream); }
+.pc-box.pro { border-color:rgba(45,122,79,0.25); background:var(--green-bg); }
+.pc-box.con { border-color:rgba(139,58,98,0.22); background:var(--magenta-bg); }
+.pc-label { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; font-weight:600; }
+.pc-box.pro .pc-label { color:var(--green); }
+.pc-box.con .pc-label { color:var(--magenta); }
+.pc-box ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.pc-box li { font-size:0.8rem; color:var(--ink-mid); line-height:1.55; padding-left:14px; position:relative; }
+.pc-box.pro li::before { content:'✓'; position:absolute; left:0; color:var(--green); font-weight:600; font-size:0.72rem; }
+.pc-box.con li::before { content:'–'; position:absolute; left:0; color:var(--magenta); font-weight:600; }
+
+.best-for { margin-top:18px; padding:12px 16px; background:var(--warm); border-left:3px solid var(--gold); border-radius:0 7px 7px 0; font-size:0.82rem; color:var(--ink-mid); }
+.best-for strong { color:var(--gold); font-family:'DM Mono',monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; display:block; margin-bottom:5px; }
+
+/* FRAMING CARD */
+.assumption-card { background:var(--white); border:1px solid var(--border-md); border-radius:var(--r); padding:24px 28px; margin-bottom:16px; box-shadow:var(--shadow-sm); }
+.assumption-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; color:var(--ink); margin-bottom:12px; }
+.assumption-card p { font-size:0.88rem; color:var(--ink-mid); line-height:1.8; }
+.assumption-card p + p { margin-top:12px; }
+.assumption-card .accent-word { color:var(--gold); font-weight:600; }
+
+/* COST / REALITY BOX */
+.tax-box { border-radius:8px; padding:14px 16px; border:1px solid rgba(24,104,168,0.22); background:var(--cyan-bg); margin-top:14px; }
+.tax-box .pc-label { color:var(--cyan); font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; font-weight:600; }
+.tax-box ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.tax-box li { font-size:0.8rem; color:var(--ink-mid); line-height:1.6; padding-left:15px; position:relative; }
+.tax-box li::before { content:'§'; position:absolute; left:0; color:var(--cyan); font-weight:600; font-size:0.74rem; }
+
+/* REG NOTE */
+.reg-note { margin-top:14px; padding:12px 16px; background:var(--cyan-bg); border-left:3px solid var(--cyan); border-radius:0 7px 7px 0; font-size:0.8rem; color:var(--ink-mid); line-height:1.65; }
+.reg-note strong { display:block; font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cyan); margin-bottom:5px; }
+
+/* COMPARISON TABLE */
+.dir-table-wrap { overflow-x:auto; border-radius:8px; border:1px solid var(--border-md); -webkit-overflow-scrolling:touch; }
+.dir-table { border-collapse:collapse; width:100%; min-width:760px; }
+.dir-table thead tr { background:var(--warm); }
+.dir-table th { padding:12px 14px; text-align:left; font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-right:1px solid var(--border); white-space:nowrap; }
+.dir-table th:last-child { border-right:none; }
+.dir-table td { padding:12px 14px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); vertical-align:top; font-size:0.82rem; color:var(--ink-mid); }
+.dir-table td:last-child { border-right:none; }
+.dir-table tbody tr:last-child td { border-bottom:none; }
+.dir-table tbody tr:hover td { background:var(--gold-bg); }
+.dir-table td.strategy-cell { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; color:var(--ink); white-space:nowrap; }
+.dot-rating { display:inline-flex; gap:3px; vertical-align:middle; }
+.dot { width:7px; height:7px; border-radius:50%; background:var(--border-md); display:inline-block; }
+.dot.on { background:var(--gold); }
+
+/* MOBILE COMPARISON CARDS */
+.compare-cards { display:none; flex-direction:column; gap:14px; }
+.compare-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:18px; box-shadow:var(--shadow-sm); }
+.compare-card-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--ink); margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.compare-row { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:7px 0; font-size:0.82rem; }
+.compare-row .k { font-family:'DM Mono',monospace; font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--stone); white-space:nowrap; padding-top:2px; }
+.compare-row .v { color:var(--ink-mid); text-align:right; }
+
+/* CHECKLIST */
+.checklist-card { background:var(--white); border:1px solid var(--border-md); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-sm); }
+.checklist-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.check-item { display:flex; align-items:flex-start; gap:12px; padding:12px 14px; background:var(--cream); border:1px solid var(--border); border-radius:7px; font-size:0.84rem; color:var(--ink-mid); line-height:1.55; text-align:left; }
+.check-item .ck-box { min-width:18px; width:18px; height:18px; border-radius:5px; border:1.5px solid var(--gold-bdr); background:var(--gold-bg); margin-top:1px; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:0.7rem; font-weight:700; }
+
+/* NEXT STEPS / SEQUENCING TIMELINE */
+.next-steps-card { background:var(--white); border:1px solid var(--border-md); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-sm); }
+.timeline { display:flex; flex-direction:column; gap:0; }
+.tl-item { display:flex; gap:16px; padding-bottom:22px; position:relative; }
+.tl-item:last-child { padding-bottom:0; }
+.tl-item:not(:last-child)::before { content:''; position:absolute; left:11px; top:26px; bottom:0; width:1px; background:var(--border-md); }
+.tl-dot { width:24px; height:24px; min-width:24px; border-radius:50%; background:var(--gold-bg); border:1px solid var(--gold-bdr); color:var(--gold); display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:0.68rem; font-weight:600; z-index:1; }
+.tl-body-title { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--ink); margin-bottom:4px; }
+.tl-body-desc { font-size:0.82rem; color:var(--ink-mid); line-height:1.6; }
+
+/* FOOTER */
+.site-footer { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:32px; border-top:1px solid var(--border-md); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+.footer-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--ink); }
+.footer-copy { font-family:'DM Mono',monospace; font-size:0.64rem; color:var(--stone); letter-spacing:0.1em; }
+
+/* DARK MODE TOGGLE */
+.theme-toggle { position:fixed; top:20px; right:20px; z-index:50; width:44px; height:44px; border-radius:50%; background:var(--white); border:1px solid var(--border-md); box-shadow:var(--shadow-md); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.1rem; transition:transform 0.2s; }
+.theme-toggle:hover { transform:scale(1.06); }
+
+@keyframes fadeDown { from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:none;} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;} }
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+body.dark {
+  --cream: #0B1E22;
+  --warm:  #10282C;
+  --stone: #4E7A7E;
+  --ink:   #EAF6F6;
+  --ink-mid: #B9DADB;
+  --ink-mute: #7FA9AC;
+  --white: #0F2529;
+  --border: rgba(234,246,246,0.09);
+  --border-md: rgba(234,246,246,0.18);
+  --green-bg: rgba(45,156,127,0.16);
+  --magenta-bg: rgba(46,134,171,0.16);
+  --cyan-bg: rgba(24,104,168,0.18);
+}
+body.dark .theme-toggle { background:var(--white); border-color:var(--border-md); }
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   Desktop  : > 1024px
+   Tablet   : 641–1024px
+   Mobile   : ≤ 640px
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .page { padding: 0 24px 80px; }
+  .hero { padding: 48px 0 36px; }
+  .hero-name { font-size: clamp(2.4rem, 6.5vw, 4rem); }
+  .pc-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .section-divider { padding: 20px 24px; }
+  .checklist-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .page { padding: 0 16px 100px; }
+  .hero { padding: 40px 0 32px; text-align: center; }
+  .hero-name { font-size: clamp(2.2rem, 11vw, 3.2rem); }
+  .hero-tagline { margin: 0 auto; }
+  .disclaimer { text-align: center; }
+  .section-label { margin: 40px 0 12px; font-size: 0.6rem; justify-content: center; }
+  .section-label::after { display: none; }
+  .section-divider { padding: 16px; flex-wrap: wrap; gap: 10px; margin-top: 48px; justify-content: center; text-align: center; }
+  .section-divider-title { font-size: 1.3rem; width: 100%; text-align: center; }
+  .section-divider-label { width: 100%; text-align: center; }
+  .section-divider-sep, .section-divider-line { display: none; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .toc-item { text-align: left; justify-content: flex-start; }
+  .card-header { padding: 12px 16px 11px; gap: 8px; justify-content: center; }
+  .card-filename { text-align:center; }
+  .card-body { padding: 18px; text-align: center; }
+  .card-name { text-align: center; }
+  .card-desc { text-align: center; }
+  .card-subtitle { text-align: center; }
+  .steps-list li { text-align: left; }
+  .pc-grid { grid-template-columns: 1fr; gap: 10px; }
+  .pc-box { text-align: left; }
+  .best-for { text-align: left; }
+  .assumption-card { text-align: center; }
+  .applied-box { text-align: center; }
+  .tax-box { text-align: left; }
+  .reg-note { text-align: left; }
+  .dir-table-wrap { display: none; }
+  .compare-cards { display: flex; }
+  .compare-card-title { text-align: center; }
+  .checklist-grid { grid-template-columns: 1fr; }
+  .check-item { text-align: left; }
+  .next-steps-card { padding: 20px; }
+  .tl-body-title { text-align: left; }
+  .tl-body-desc { text-align: left; }
+  .site-footer { flex-direction: column; text-align: center; padding: 24px 16px; }
+  .theme-toggle { top: 14px; right: 14px; width: 40px; height: 40px; }
+}
+
+@media (max-width: 380px) {
+  .page { padding: 0 12px 100px; }
+  .hero-name { font-size: clamp(1.9rem, 12vw, 2.6rem); }
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .page { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+}
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Founder Prep · $0 to $10M in 12 Months</div>
+    <h1 class="hero-name">The Roadmap<span class="accent">.</span></h1>
+    <p class="hero-tagline">Five foundational moves to make before real revenue hits — plus the starter checklist most founders skip until it costs them. Built for structure and durability, not secrecy.</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Not legal, tax, or financial advice.</strong> This is general education on standard business-formation practices for a founder scaling an LLC toward meaningful revenue. Requirements vary by state and industry. Confirm entity elections, filings, and contracts with a licensed business attorney and CPA before acting — ideally before you sign your first big contract, not after.
+  </div>
+
+  <!-- TOC -->
+  <div class="section-label">Contents</div>
+  <div class="toc-grid">
+    <a href="#framing" class="toc-item"><span class="toc-num">◆</span><span class="toc-title">Why Structure Beats Secrecy</span></a>
+    <a href="#s1" class="toc-item"><span class="toc-num">01</span><span class="toc-title">Entity Choice & Election Timing</span></a>
+    <a href="#s2" class="toc-item"><span class="toc-num">02</span><span class="toc-title">Governance & Paper Trail</span></a>
+    <a href="#s3" class="toc-item"><span class="toc-num">03</span><span class="toc-title">Financial Separation</span></a>
+    <a href="#s4" class="toc-item"><span class="toc-num">04</span><span class="toc-title">The Insurance Stack</span></a>
+    <a href="#s5" class="toc-item"><span class="toc-num">05</span><span class="toc-title">Tax & Compensation Planning</span></a>
+    <a href="#checklist" class="toc-item"><span class="toc-num">◆</span><span class="toc-title">Pre-Revenue Checklist</span></a>
+  </div>
+
+  <!-- FRAMING -->
+  <div class="section-divider" id="framing">
+    <div class="section-divider-label">Before Any Strategy</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">What Actually Protects a Founder</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="assumption-card">
+    <h3>Protection comes from paperwork done right, not from being hard to find</h3>
+    <p>The instinct to hide ownership or move fast on anonymity feels protective, but it's the opposite of what actually holds up. Courts and creditors don't care how many layers sit between your name and an asset — they care whether you kept the entity's formalities intact. An LLC that <span class="accent-word">commingles funds, skips its operating agreement, or gets treated like a personal wallet</span> can have its liability shield "pierced" regardless of how the paperwork was titled. The five moves below are the ones that actually hold up in court, in an audit, or in front of an investor — because they're built on transparency and documentation, not on being untraceable.</p>
+    <p>Sequencing matters too. All five of these should be substantially in place <span class="accent-word">before</span> revenue ramps — not retrofitted after a client sues you or the IRS asks questions about a check that never touched a business account.</p>
+  </div>
+
+  <!-- STRATEGY 1 -->
+  <div class="section-divider" id="s1">
+    <div class="section-divider-label">Move 01</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Entity Choice & Election Timing</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">entity-formation.strategy</div>
+      <span class="card-badge badge-gold">Foundation</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Get the Entity — and the Tax Election — Right First</div>
+      <p class="card-desc">Your LLC is a state-law liability shield. Separately, you choose how the IRS taxes it. Getting both right before revenue scales is far cheaper than restructuring after the fact.</p>
+
+      <div class="applied-box">
+        <strong>Applied to a $0 → $10M year</strong>
+        A single-member LLC taxed as a disregarded entity is fine at low revenue, but around the point net profit clears roughly $40K–$60K a year, an S-corp election (Form 2553) typically starts saving real money on self-employment tax — because only your "reasonable salary" is subject to payroll tax, not the full profit. At $10M in revenue, you'll almost certainly want a CPA modeling S-corp vs. C-corp vs. staying an LLC, since the right answer depends on margins, whether you plan to raise investment, and whether you'll retain earnings in the business.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>Confirm your LLC is properly formed and in good standing in your state — pull your Articles of Organization and check the state's business registry yourself</li>
+        <li>Get an EIN from the IRS directly (irs.gov, free) — never pay a third-party site to do this</li>
+        <li>Decide your tax election with a CPA: default disregarded/partnership taxation, or an S-corp election once profit justifies it</li>
+        <li>If electing S-corp status, file Form 2553 within the required window — timing matters, since a late election can push the change to the following tax year</li>
+        <li>Register for state and local tax accounts (sales tax, employer withholding) as soon as you have revenue or your first hire</li>
+      </ul>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Do this early</div>
+          <ul>
+            <li>Lock in your entity and election before revenue ramps, not after a big quarter surprises you</li>
+            <li>Keep formation documents and your EIN letter in one organized folder from day one</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Common mistakes</div>
+          <ul>
+            <li>Forming in a state you don't operate in "for privacy," then owing foreign-qualification fees and a registered agent in every state you actually do business</li>
+            <li>Electing S-corp status before there's enough profit to justify the added payroll and filing complexity</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>Every founder, on day one — this is the load-bearing wall everything else in this roadmap sits on.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY 2 -->
+  <div class="section-divider" id="s2">
+    <div class="section-divider-label">Move 02</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Governance & Paper Trail</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">governance-docs.strategy</div>
+      <span class="card-badge badge-cyan">Liability Shield</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Write the Operating Agreement Before You Need It</div>
+      <p class="card-desc">An operating agreement is the document that actually makes your LLC look like a real, separate legal entity to a court — the single biggest factor in whether your personal assets stay protected if the business gets sued.</p>
+
+      <div class="applied-box">
+        <strong>Applied to a $0 → $10M year</strong>
+        As revenue climbs, so does the odds of a contract dispute, an employee claim, or a vendor disagreement. An operating agreement drafted while you're small and stakes are low is far cheaper and cleaner than drafting one under pressure once there's a dispute already brewing.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>Draft an operating agreement with a business attorney — even as a single-member LLC, most states don't require one, but courts weigh its existence heavily when deciding whether to respect your liability shield</li>
+        <li>Define ownership percentages, capital contributions, profit distribution rules, and what happens if you bring on a co-founder or investor later</li>
+        <li>Keep a company records book (physical or digital): formation documents, EIN letter, operating agreement, any amendments, and annual resolutions</li>
+        <li>Document major decisions in writing — even brief written resolutions for big purchases, new bank accounts, or contracts create the "this is a real company" paper trail</li>
+        <li>Renew your state's annual report / franchise tax filing on time every year — lapses can administratively dissolve your LLC without you noticing</li>
+      </ul>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Do this early</div>
+          <ul>
+            <li>Put the operating agreement in place before you take on your first big client or hire</li>
+            <li>Calendar your state's annual filing deadline the day you form the LLC</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Common mistakes</div>
+          <ul>
+            <li>Assuming a single-member LLC doesn't need an operating agreement because the state doesn't require one</li>
+            <li>Letting the annual report lapse and finding out the LLC was dissolved only after a lawsuit already named you personally</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>Any founder who plans to sign contracts, hire, or take on a co-founder or investor.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY 3 -->
+  <div class="section-divider" id="s3">
+    <div class="section-divider-label">Move 03</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Financial Separation</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">financial-hygiene.strategy</div>
+      <span class="card-badge badge-green">Non-Negotiable</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Never Let Business and Personal Money Touch</div>
+      <p class="card-desc">Commingling funds is the single fastest way to lose your liability shield entirely — a court can decide your LLC was never really separate from you personally, exposing your house, car, and savings to a business debt or lawsuit.</p>
+
+      <div class="applied-box">
+        <strong>Applied to a $0 → $10M year</strong>
+        At low revenue this is easy to get sloppy about; at $10M it becomes existential — that's real money moving through the business, and a clean set of books is also what makes the company sellable, financeable, and auditable down the line.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>Open a dedicated business checking account and credit card under the LLC's EIN — day one, before the first dollar of revenue arrives</li>
+        <li>Pay yourself through a formal, documented method (owner's draw, or payroll if S-corp) — never pull cash directly from client payments</li>
+        <li>Use bookkeeping software (QuickBooks, Xero, or similar) from the start; don't try to reconstruct a year of transactions from memory at tax time</li>
+        <li>Reconcile the books monthly, not annually — catching an error at month one is a five-minute fix; catching it in month eleven is a forensic project</li>
+        <li>Hire a bookkeeper or fractional controller once transaction volume outpaces what you can accurately track yourself — usually well before $10M</li>
+      </ul>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Do this early</div>
+          <ul>
+            <li>Separate accounts before your first invoice goes out, not after your first big check clears</li>
+            <li>Set a recurring monthly calendar reminder to reconcile books</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Common mistakes</div>
+          <ul>
+            <li>Routing early client payments to a personal account "just until the business account is set up"</li>
+            <li>Treating the business debit card as a personal card for convenience purchases</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>Literally everyone — this is the cheapest, highest-leverage protection on this list.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY 4 -->
+  <div class="section-divider" id="s4">
+    <div class="section-divider-label">Move 04</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">The Insurance Stack</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">insurance-stack.strategy</div>
+      <span class="card-badge badge-cyan">Risk Transfer</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Insurance Is the Protection an LLC Alone Doesn't Give You</div>
+      <p class="card-desc">An LLC shields your personal assets from business debts in most cases — it does far less against a lawsuit alleging the business itself did something wrong. Insurance is what actually covers that gap.</p>
+
+      <div class="applied-box">
+        <strong>Applied to a $0 → $10M year</strong>
+        Coverage needs scale with revenue, headcount, and contract size — a $10M business signing enterprise contracts will often be contractually required to carry specific coverage limits before a client will even sign, so get quotes before you need them, not after a client's legal team asks for a certificate of insurance you don't have.
+      </div>
+
+      <div class="card-subtitle">Core coverage to price out</div>
+      <ul class="steps-list">
+        <li><strong>General liability</strong> — covers third-party bodily injury, property damage, and basic claims; often the minimum a landlord or client will require</li>
+        <li><strong>Professional liability / errors & omissions</strong> — covers claims that your service or advice caused a client financial harm; essential for consulting, agency, or advisory work</li>
+        <li><strong>Cyber liability</strong> — covers data breach response, client notification costs, and related liability if you handle customer data</li>
+        <li><strong>Umbrella policy</strong> — extends coverage limits above your underlying policies once revenue and contract sizes grow past your base limits</li>
+        <li><strong>Directors & officers (D&O)</strong> — worth pricing out once you bring on investors, a board, or outside officers</li>
+      </ul>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Do this early</div>
+          <ul>
+            <li>Get GL and E&O quotes before your first client contract, even at low revenue</li>
+            <li>Re-shop coverage annually as revenue and headcount grow</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Common mistakes</div>
+          <ul>
+            <li>Assuming "the LLC protects me" covers claims against the business's own actions or advice — it generally doesn't</li>
+            <li>Waiting until a client demands proof of insurance to start shopping for a policy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>Any founder taking on client contracts, handling customer data, or renting commercial space.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY 5 -->
+  <div class="section-divider" id="s5">
+    <div class="section-divider-label">Move 05</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Tax & Compensation Planning</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">tax-comp-planning.strategy</div>
+      <span class="card-badge badge-magenta">Cash Flow</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Plan the Tax Bill Before It's Due, Not After</div>
+      <p class="card-desc">Fast-growing businesses fail from cash flow surprises more often than from lack of revenue — and a surprise tax bill is one of the most common and most avoidable versions of that.</p>
+
+      <div class="applied-box">
+        <strong>Applied to a $0 → $10M year</strong>
+        Revenue growing from $0 to $10M in a year almost always means quarterly estimated tax payments become mandatory, not optional — underpaying them triggers IRS penalties even if the full amount is paid at filing time.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>Set aside a fixed percentage of every incoming payment into a separate tax reserve account the moment it's received — don't wait until quarter-end to figure out what you owe</li>
+        <li>File quarterly estimated payments (Form 1040-ES for pass-through income, or corporate estimates if taxed as a C-corp) on the IRS's schedule — missing a quarter creates penalties even with a compliant year-end filing</li>
+        <li>If S-corp elected, set a documented "reasonable salary" through payroll before taking additional distributions — the IRS specifically scrutinizes S-corps that pay owners little or no salary while taking large distributions</li>
+        <li>Open a solo 401(k) or SEP-IRA early — retirement contributions are one of the few legitimate ways to reduce current taxable income while building your own asset base</li>
+        <li>Bring in a CPA who works with businesses at your revenue stage before year-end, not during tax season — planning conversations only work before December 31</li>
+      </ul>
+
+      <div class="tax-box">
+        <div class="pc-label">Reality check</div>
+        <ul>
+          <li>Self-employment tax is 15.3% on top of income tax for disregarded LLCs and partnerships — this is the main thing an S-corp election addresses once profit justifies the switch</li>
+          <li>Underpayment penalties accrue quarterly, calculated on IRS Form 2210 — a large balance due in April doesn't retroactively fix an underpaid Q1 or Q2</li>
+          <li>A CPA engaged in Q4 for tax planning is worth meaningfully more than one engaged in April for tax filing — the actionable moves close at year-end</li>
+        </ul>
+      </div>
+      <div class="best-for"><strong>Best for</strong>Every founder the moment revenue becomes real enough that a surprise tax bill would actually hurt.</div>
+    </div>
+  </div>
+
+  <!-- COMPARISON: ENTITY OPTIONS -->
+  <div class="section-divider" id="compare">
+    <div class="section-divider-label">Reference</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Entity & Election Comparison</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="dir-table-wrap">
+    <table class="dir-table">
+      <thead>
+        <tr>
+          <th>Structure</th>
+          <th>Liability Shield</th>
+          <th>Tax Complexity</th>
+          <th>Self-Employment Tax</th>
+          <th>Typical Setup Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="strategy-cell">Sole Proprietorship</td>
+          <td>None</td>
+          <td>Low</td>
+          <td>Full, on all profit</td>
+          <td>$0</td>
+        </tr>
+        <tr>
+          <td class="strategy-cell">Single-Member LLC</td>
+          <td>Yes (if formalities kept)</td>
+          <td>Low</td>
+          <td>Full, on all profit</td>
+          <td>$50 – $500</td>
+        </tr>
+        <tr>
+          <td class="strategy-cell">Multi-Member LLC</td>
+          <td>Yes (if formalities kept)</td>
+          <td>Medium</td>
+          <td>Full, on all profit</td>
+          <td>$500 – $2,000</td>
+        </tr>
+        <tr>
+          <td class="strategy-cell">LLC Taxed as S-Corp</td>
+          <td>Yes (if formalities kept)</td>
+          <td>Medium–High</td>
+          <td>Only on salary, not distributions</td>
+          <td>$1,500 – $4,000/yr</td>
+        </tr>
+        <tr>
+          <td class="strategy-cell">C-Corporation</td>
+          <td>Yes (strongest, if maintained)</td>
+          <td>High</td>
+          <td>Only on salary; corp pays own tax</td>
+          <td>$3,000 – $10,000+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="compare-cards">
+    <div class="compare-card">
+      <div class="compare-card-title">Sole Proprietorship</div>
+      <div class="compare-row"><span class="k">Shield</span><span class="v">None</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">Low</span></div>
+      <div class="compare-row"><span class="k">SE Tax</span><span class="v">Full</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$0</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-title">Single-Member LLC</div>
+      <div class="compare-row"><span class="k">Shield</span><span class="v">Yes, if maintained</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">Low</span></div>
+      <div class="compare-row"><span class="k">SE Tax</span><span class="v">Full</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$50 – $500</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-title">Multi-Member LLC</div>
+      <div class="compare-row"><span class="k">Shield</span><span class="v">Yes, if maintained</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">Medium</span></div>
+      <div class="compare-row"><span class="k">SE Tax</span><span class="v">Full</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$500 – $2,000</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-title">LLC Taxed as S-Corp</div>
+      <div class="compare-row"><span class="k">Shield</span><span class="v">Yes, if maintained</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">Med–High</span></div>
+      <div class="compare-row"><span class="k">SE Tax</span><span class="v">Salary only</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$1,500 – $4,000/yr</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-title">C-Corporation</div>
+      <div class="compare-row"><span class="k">Shield</span><span class="v">Strongest</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">High</span></div>
+      <div class="compare-row"><span class="k">SE Tax</span><span class="v">Salary only</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$3,000 – $10,000+</span></div>
+    </div>
+  </div>
+
+  <!-- PRE-REVENUE CHECKLIST -->
+  <div class="section-divider" id="checklist">
+    <div class="section-divider-label">Starter Kit</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Set This Up Before Revenue Ramps</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="checklist-card">
+    <div class="checklist-grid">
+      <div class="check-item"><span class="ck-box">✓</span>LLC formed and in good standing in your operating state</div>
+      <div class="check-item"><span class="ck-box">✓</span>EIN obtained directly from irs.gov</div>
+      <div class="check-item"><span class="ck-box">✓</span>Operating agreement drafted with an attorney</div>
+      <div class="check-item"><span class="ck-box">✓</span>Dedicated business bank account and credit card open</div>
+      <div class="check-item"><span class="ck-box">✓</span>Bookkeeping software set up before the first invoice</div>
+      <div class="check-item"><span class="ck-box">✓</span>General liability and E&O insurance quoted and bound</div>
+      <div class="check-item"><span class="ck-box">✓</span>Tax reserve account opened, funded on every payment received</div>
+      <div class="check-item"><span class="ck-box">✓</span>CPA and business attorney identified — not just googled, actually contacted</div>
+      <div class="check-item"><span class="ck-box">✓</span>State annual report / franchise tax deadline calendared</div>
+      <div class="check-item"><span class="ck-box">✓</span>Client contracts reviewed by an attorney before the first one is signed</div>
+      <div class="check-item"><span class="ck-box">✓</span>Retirement account (solo 401(k) or SEP-IRA) opened</div>
+      <div class="check-item"><span class="ck-box">✓</span>Registered agent and business address confirmed and current</div>
+    </div>
+  </div>
+
+  <!-- SEQUENCING -->
+  <div class="section-divider">
+    <div class="section-divider-label">Sequencing</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">The Order That Actually Matters</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="next-steps-card">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">1</div>
+        <div>
+          <div class="tl-body-title">Form the LLC and open business banking — week one</div>
+          <div class="tl-body-desc">This costs little and takes days. Do it before your first invoice, not after your first client asks for one.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2</div>
+        <div>
+          <div class="tl-body-title">Get the operating agreement and insurance in place before signing client contracts</div>
+          <div class="tl-body-desc">Both are cheap relative to the exposure they close, and both are far harder to retrofit once a dispute is already underway.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">3</div>
+        <div>
+          <div class="tl-body-title">Bring in a CPA once revenue is real, not once a tax bill surprises you</div>
+          <div class="tl-body-desc">This is when the S-corp election, quarterly estimates, and retirement account conversations actually pay for themselves.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">4</div>
+        <div>
+          <div class="tl-body-title">Re-shop insurance and revisit entity structure as revenue climbs toward $10M</div>
+          <div class="tl-body-desc">Coverage limits, contract requirements, and the right tax election all shift as the business grows — this isn't a set-it-and-forget-it list.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">5</div>
+        <div>
+          <div class="tl-body-title">Add a wealth manager once cash is consistently flowing</div>
+          <div class="tl-body-desc">Once the legal, tax, and insurance foundation is solid, personal investment and retirement planning can be built properly on top of it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-name">The Roadmap</div>
+  <div class="footer-copy">GENERAL INFORMATION · NOT LEGAL OR FINANCIAL ADVICE</div>
+</footer>
+
+<script>
+(function() {
+  var toggle = document.getElementById('themeToggle');
+  var body = document.body;
+  function applyTheme(isDark) {
+    body.classList.toggle('dark', isDark);
+    toggle.textContent = isDark ? '☀️' : '🌙';
+  }
+  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  applyTheme(prefersDark);
+  toggle.addEventListener('click', function() {
+    applyTheme(!body.classList.contains('dark'));
+  });
+})();
+</script>
+
+</body>
+</html>
