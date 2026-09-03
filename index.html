@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Asset Protection 'R' Us — Learn the Structures, Then See a Lawyer</title>
+<meta name="theme-color" content="#F2F9F9"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream:     #F2F9F9;
+  --warm:      #E4F1F1;
+  --stone:     #9FC8CB;
+  --ink:       #10282A;
+  --ink-mid:   #3E5C5E;
+  --ink-mute:  #6E9294;
+  --gold:      #0FA3A8;
+  --gold-lt:   #4ECDC4;
+  --gold-bg:   rgba(15,163,168,0.09);
+  --gold-bdr:  rgba(15,163,168,0.28);
+  --white:     #FFFFFF;
+  --border:    rgba(20,80,90,0.12);
+  --border-md: rgba(20,80,90,0.22);
+  --shadow-sm: 0 2px 8px rgba(10,60,70,0.07);
+  --shadow-md: 0 8px 32px rgba(10,60,70,0.11);
+  --shadow-lg: 0 20px 60px rgba(10,60,70,0.14);
+  --r: 10px;
+  --green:     #2D9C7F;
+  --green-bg:  #E4F7F1;
+  --cyan:      #1868A8;
+  --cyan-bg:   rgba(24,104,168,0.08);
+  --magenta:   #2E86AB;
+  --magenta-bg:rgba(46,134,171,0.08);
+  --q1: #1868A8; --q1-bg: rgba(24,104,168,0.08); --q1-bdr: rgba(24,104,168,0.25);
+  --q2: #0FA3A8; --q2-bg: rgba(15,163,168,0.09); --q2-bdr: rgba(15,163,168,0.28);
+  --q3: #2D9C7F; --q3-bg: rgba(45,156,127,0.09); --q3-bdr: rgba(45,156,127,0.28);
+  --q4: #2E86AB; --q4-bg: rgba(46,134,171,0.08); --q4-bdr: rgba(46,134,171,0.25);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body {
+  background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif;
+  font-weight:400; line-height:1.65;
+}
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(15,163,168,0.08) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+.page { position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 32px 100px; }
+
+/* CONTROLS */
+.controls-bar { position:fixed; top:20px; right:20px; z-index:50; display:flex; align-items:center; gap:6px; background:var(--white); border:1px solid var(--border-md); border-radius:100px; padding:5px; box-shadow:var(--shadow-md); }
+.fs-btn { width:32px; height:32px; border-radius:50%; border:none; background:transparent; color:var(--ink-mid); font-family:'DM Mono',monospace; font-size:0.72rem; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s,color 0.15s; }
+.fs-btn:hover { background:var(--gold-bg); color:var(--gold); }
+#fsReset { font-size:0.8rem; }
+.theme-toggle { width:32px; height:32px; border-radius:50%; background:var(--white); border:1px solid var(--border-md); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:0.95rem; transition:transform 0.2s; }
+.theme-toggle:hover { transform:scale(1.06); }
+
+/* HERO */
+.hero { padding:64px 0 40px; border-bottom:1px solid var(--border-md); margin-bottom:40px; animation:fadeDown 0.8s ease both; }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+.hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,7.5vw,5.4rem); font-weight:600; line-height:1.02; color:var(--ink); letter-spacing:-0.01em; margin-bottom:18px; }
+.hero-name .accent { color:var(--gold); font-style:italic; }
+.hero-tagline { font-size:1.05rem; color:var(--ink-mute); font-weight:300; max-width:700px; font-style:italic; }
+
+/* DISCLAIMER */
+.disclaimer-big { background:var(--white); border:2px solid var(--gold-bdr); border-radius:var(--r); padding:22px 26px; margin-bottom:48px; box-shadow:var(--shadow-sm); }
+.disclaimer-big-title { font-family:'DM Mono',monospace; font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; font-weight:600; }
+.disclaimer-big p { font-size:0.9rem; color:var(--ink-mid); line-height:1.75; }
+.disclaimer-big p + p { margin-top:10px; }
+.disclaimer-big strong { color:var(--ink); }
+
+/* SECTION LABEL / DIVIDER */
+.section-label { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); font-weight:500; margin:56px 0 20px; display:flex; align-items:center; gap:14px; }
+.section-label::after { content:''; flex:1; height:1px; background:var(--border-md); }
+
+/* QUADRANT GRID */
+.quad-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:16px; }
+.quad-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); box-shadow:var(--shadow-sm); overflow:hidden; transition:box-shadow 0.2s, transform 0.2s; animation:fadeUp 0.5s ease both; display:flex; flex-direction:column; }
+.quad-card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
+.quad-head { padding:20px 24px 16px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:14px; }
+.quad-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; font-style:italic; line-height:1; }
+.quad-head-text { flex:1; }
+.quad-title { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; color:var(--ink); margin-bottom:2px; }
+.quad-subtitle { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; }
+.quad-body { padding:18px 24px 22px; flex:1; display:flex; flex-direction:column; }
+.quad-desc { font-size:0.86rem; color:var(--ink-mid); line-height:1.7; margin-bottom:16px; }
+.quad-files { list-style:none; display:flex; flex-direction:column; gap:6px; margin-top:auto; }
+.quad-files li a { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:9px 13px; background:var(--cream); border:1px solid var(--border); border-radius:7px; text-decoration:none; color:var(--ink); font-size:0.8rem; font-weight:500; transition:all 0.15s; }
+.quad-files li a:hover { border-color:var(--border-md); transform:translateX(2px); }
+.quad-files li a .arrow { font-family:'DM Mono',monospace; font-size:0.7rem; }
+
+.q1 .quad-num, .q1 .quad-subtitle, .q1 .quad-files li a:hover { color:var(--q1); }
+.q1 .quad-files li a:hover { border-color:var(--q1-bdr); background:var(--q1-bg); }
+.q2 .quad-num, .q2 .quad-subtitle { color:var(--q2); }
+.q2 .quad-files li a:hover { border-color:var(--q2-bdr); background:var(--q2-bg); color:var(--q2); }
+.q3 .quad-num, .q3 .quad-subtitle { color:var(--q3); }
+.q3 .quad-files li a:hover { border-color:var(--q3-bdr); background:var(--q3-bg); color:var(--q3); }
+.q4 .quad-num, .q4 .quad-subtitle { color:var(--q4); }
+.q4 .quad-files li a:hover { border-color:var(--q4-bdr); background:var(--q4-bg); color:var(--q4); }
+
+/* HOW TO USE THIS */
+.how-card { background:var(--white); border:1px solid var(--border-md); border-radius:var(--r); padding:24px 28px; margin-bottom:16px; box-shadow:var(--shadow-sm); }
+.how-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:600; color:var(--ink); margin-bottom:12px; }
+.how-list { list-style:none; display:flex; flex-direction:column; gap:10px; counter-reset:how; }
+.how-list li { display:flex; align-items:flex-start; gap:12px; font-size:0.87rem; color:var(--ink-mid); line-height:1.65; counter-increment:how; }
+.how-list li::before { content:counter(how); background:var(--gold-bg); border:1px solid var(--gold-bdr); color:var(--gold); border-radius:50%; width:22px; height:22px; min-width:22px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:600; margin-top:1px; }
+
+/* CONTACT / WORK WITH ME */
+.contact-card { background:var(--white); border:1px solid var(--border-md); border-radius:var(--r); padding:32px; box-shadow:var(--shadow-sm); display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.contact-name { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:600; color:var(--ink); margin-bottom:4px; }
+.contact-role { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.contact-blurb { font-size:0.86rem; color:var(--ink-mid); line-height:1.75; }
+.contact-links { display:flex; flex-direction:column; gap:8px; justify-content:center; }
+.contact-link { display:flex; align-items:center; justify-content:space-between; padding:11px 16px; background:var(--cream); border:1px solid var(--border); border-radius:7px; text-decoration:none; color:var(--ink); font-size:0.84rem; font-weight:500; transition:all 0.15s; }
+.contact-link:hover { border-color:var(--gold-bdr); background:var(--gold-bg); color:var(--gold); }
+.contact-link .tag { font-family:'DM Mono',monospace; font-size:0.6rem; color:var(--stone); }
+
+/* FOOTER */
+.site-footer { position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:32px; border-top:1px solid var(--border-md); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+.footer-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--ink); }
+.footer-copy { font-family:'DM Mono',monospace; font-size:0.64rem; color:var(--stone); letter-spacing:0.1em; }
+
+@keyframes fadeDown { from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:none;} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;} }
+
+/* DARK MODE */
+body.dark {
+  --cream: #0B1E22;
+  --warm:  #10282C;
+  --stone: #4E7A7E;
+  --ink:   #EAF6F6;
+  --ink-mid: #B9DADB;
+  --ink-mute: #7FA9AC;
+  --white: #0F2529;
+  --border: rgba(234,246,246,0.09);
+  --border-md: rgba(234,246,246,0.18);
+  --green-bg: rgba(45,156,127,0.16);
+  --magenta-bg: rgba(46,134,171,0.16);
+  --cyan-bg: rgba(24,104,168,0.18);
+  --q1-bg: rgba(24,104,168,0.16); --q2-bg: rgba(15,163,168,0.16); --q3-bg: rgba(45,156,127,0.16); --q4-bg: rgba(46,134,171,0.16);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .page { padding: 0 24px 80px; }
+  .quad-grid { grid-template-columns: 1fr; }
+  .contact-card { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .page { padding: 0 16px 100px; }
+  .controls-bar { top: 12px; right: 12px; padding: 4px; }
+  .fs-btn { width: 28px; height: 28px; font-size: 0.66rem; }
+  .theme-toggle { width: 28px; height: 28px; font-size: 0.85rem; }
+  .hero { padding: 40px 0 32px; text-align: center; }
+  .hero-name { font-size: clamp(2.2rem, 11vw, 3.2rem); }
+  .hero-tagline { margin: 0 auto; }
+  .disclaimer-big { text-align: left; }
+  .section-label { margin: 40px 0 14px; font-size: 0.6rem; justify-content: center; }
+  .section-label::after { display: none; }
+  .quad-head { padding: 16px 18px 14px; }
+  .quad-body { padding: 14px 18px 18px; }
+  .how-card { padding: 20px; }
+  .how-card h3 { text-align: center; }
+  .contact-card { padding: 22px; }
+  .contact-name, .contact-role { text-align: center; }
+  .contact-blurb { text-align: center; }
+  .site-footer { flex-direction: column; text-align: center; padding: 24px 16px; }
+}
+@media (max-width: 380px) {
+  .page { padding: 0 12px 100px; }
+  .hero-name { font-size: clamp(1.9rem, 12vw, 2.6rem); }
+}
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .page { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+}
+</style>
+</head>
+<body>
+
+<div class="controls-bar">
+  <button class="fs-btn" id="fsDown" aria-label="Decrease text size">A-</button>
+  <button class="fs-btn" id="fsReset" aria-label="Reset text size">A</button>
+  <button class="fs-btn" id="fsUp" aria-label="Increase text size">A+</button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+</div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">A Free, Educational Template Library</div>
+    <h1 class="hero-name">Asset Protection <span class="accent">'R'</span> Us</h1>
+    <p class="hero-tagline">Four starting points for people just getting into money, or finally ready to plan for it — marital agreements, trust &amp; LLC protection, business governance, and inheritance planning. Learn the structure, download the mock-up, bring it to a real attorney.</p>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer-big">
+    <div class="disclaimer-big-title">This Is Not a Law Firm</div>
+    <p><strong>Nothing on this site is legal advice, and nothing here is a lawyer.</strong> Every document in these four sections is an educational mock-up — a realistic starting draft meant to teach you what a real version of that document usually contains and why. None of it is drafted for your specific situation, none of it is state-specific unless noted, and none of it should be signed, filed, or relied on as-is.</p>
+    <p>The actual way to use this: read the mock-up, understand the shape of it, fill in your own numbers and entities where it invites you to, then bring it to a licensed attorney in your state to turn it into the real thing. That's the entire point — showing up to that first meeting already understanding the document, instead of hearing about it for the first time in an expensive hour.</p>
+  </div>
+
+  <!-- QUADRANTS -->
+  <div class="section-label">Four Places To Start</div>
+  <div class="quad-grid">
+
+    <div class="quad-card q1">
+      <div class="quad-head">
+        <div class="quad-num">01</div>
+        <div class="quad-head-text">
+          <div class="quad-title">Marital Agreements</div>
+          <div class="quad-subtitle">Prenuptial &amp; Postnuptial</div>
+        </div>
+      </div>
+      <div class="quad-body">
+        <p class="quad-desc">What a fair, well-drafted prenup or postnup actually looks like — from a first proposal through a negotiated counter-offer to a signed final draft. Six mock-ups covering both sides of the table.</p>
+        <ul class="quad-files">
+          <li><a href="marital-agreements/davenport-prenuptial-agreement.html">Prenuptial — First Draft <span class="arrow">↗</span></a></li>
+          <li><a href="marital-agreements/vance-counter-prenuptial-agreement.html">Prenuptial — Counter-Proposal <span class="arrow">↗</span></a></li>
+          <li><a href="marital-agreements/cole-prenuptial-agreement.html">Prenuptial — As Signed <span class="arrow">↗</span></a></li>
+          <li><a href="marital-agreements/informed-signing-fair-mirror.html">Prenuptial — The Informed Signing <span class="arrow">↗</span></a></li>
+          <li><a href="marital-agreements/croft-postnuptial-agreement.html">Postnuptial — Family Draft <span class="arrow">↗</span></a></li>
+          <li><a href="marital-agreements/sterling-fair-postnuptial-agreement.html">Postnuptial — The Fair Mirror <span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quad-card q2">
+      <div class="quad-head">
+        <div class="quad-num">02</div>
+        <div class="quad-head-text">
+          <div class="quad-title">Trust &amp; LLC Protection</div>
+          <div class="quad-subtitle">Asset Structuring</div>
+        </div>
+      </div>
+      <div class="quad-body">
+        <p class="quad-desc">Five structuring strategies for protecting real wealth — from a simple revocable trust up through a domestic asset protection trust and a full private trust company — plus a worked example connecting it all to a real operating LLC and a charitable foundation.</p>
+        <ul class="quad-files">
+          <li><a href="trust-llc-protection/windfall-structuring.html">The Full Structuring Playbook <span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quad-card q3">
+      <div class="quad-head">
+        <div class="quad-num">03</div>
+        <div class="quad-head-text">
+          <div class="quad-title">Business Governance</div>
+          <div class="quad-subtitle">Legal &amp; Binding Agreements</div>
+        </div>
+      </div>
+      <div class="quad-body">
+        <p class="quad-desc">The paperwork that actually holds up an LLC's liability shield in court — entity elections, operating agreements, financial separation, and the insurance stack most founders skip until it costs them.</p>
+        <ul class="quad-files">
+          <li><a href="founder-governance/founder_playbook.html">The Founder's Roadmap <span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="quad-card q4">
+      <div class="quad-head">
+        <div class="quad-num">04</div>
+        <div class="quad-head-text">
+          <div class="quad-title">Inheritance &amp; Legacy</div>
+          <div class="quad-subtitle">Passing It On, Protected</div>
+        </div>
+      </div>
+      <div class="quad-body">
+        <p class="quad-desc">How to make sure what you leave behind actually reaches who you intend, in the shape you intend — a trust letter of instruction for your executor, plus model provisions that keep an inheritance separate from a beneficiary's marriage.</p>
+        <ul class="quad-files">
+          <li><a href="inheritance-legacy/carter-trust-letter-of-instruction.html">Letter of Instruction <span class="arrow">↗</span></a></li>
+          <li><a href="inheritance-legacy/inheritance-protection-model-provisions.html">Model Provisions <span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- HOW TO USE -->
+  <div class="section-label">How To Actually Use This</div>
+  <div class="how-card">
+    <h3>Four steps, in order</h3>
+    <ul class="how-list">
+      <li>Open the mock-up closest to your situation and read it end to end — every clause is explained in plain language, not just legal boilerplate.</li>
+      <li>Download it and fill in your own names, entities, and numbers where it invites you to. This turns it from a generic example into a real first draft of your situation.</li>
+      <li>Bring that filled-in draft to a licensed attorney in your state as the starting point for your first meeting — you'll spend that hour on your actual questions instead of on the basics.</li>
+      <li>Let the attorney turn it into the real, binding version. Nothing on this site should be signed, filed, or relied upon before that step happens.</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section-label">Want Help Mapping Your Own Structure</div>
+  <div class="contact-card">
+    <div>
+      <div class="contact-name">Lamar Myers</div>
+      <div class="contact-role">Founder &amp; CEO, VTREI, LLC</div>
+      <p class="contact-blurb">AI &amp; blockchain entrepreneur based in Tucson, Arizona, building the MetaEarth ecosystem. If you want a second set of eyes on your own entity structure, or want to talk through which of these four categories fits where you are right now, reach out below.</p>
+    </div>
+    <div class="contact-links">
+      <a class="contact-link" href="https://calendly.com/director-metaearthinitiative/30min" target="_blank" rel="noopener">Book a 30-Minute Call <span class="tag">CALENDLY</span></a>
+      <a class="contact-link" href="mailto:ai.agent.lamar@gmail.com?subject=Inquiry%20from%20Asset%20Protection%20%27R%27%20Us" target="_blank" rel="noopener">Send an Email <span class="tag">MAIL</span></a>
+      <a class="contact-link" href="https://linkedin.com/in/lamar-myers-ai" target="_blank" rel="noopener">Connect on LinkedIn <span class="tag">LINKEDIN</span></a>
+      <a class="contact-link" href="https://ai-and-i-brand.vercel.app/" target="_blank" rel="noopener">Visit VTREI / MetaEarth <span class="tag">WEBSITE</span></a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-name">Asset Protection 'R' Us</div>
+  <div class="footer-copy">EDUCATIONAL MOCK-UPS ONLY · NOT A LAW FIRM · NOT LEGAL ADVICE</div>
+</footer>
+
+<script>
+(function() {
+  var toggle = document.getElementById('themeToggle');
+  var body = document.body;
+  function applyTheme(isDark) {
+    body.classList.toggle('dark', isDark);
+    toggle.textContent = isDark ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch(e) {}
+  applyTheme(saved === 'dark');
+  toggle.addEventListener('click', function() {
+    applyTheme(!body.classList.contains('dark'));
+  });
+
+  var sizes = [0.9, 1, 1.1, 1.22];
+  var idx = 1;
+  try {
+    var savedIdx = parseInt(localStorage.getItem('fsIdx'), 10);
+    if (!isNaN(savedIdx) && savedIdx >= 0 && savedIdx < sizes.length) idx = savedIdx;
+  } catch(e) {}
+  function applyScale() {
+    document.documentElement.style.fontSize = (sizes[idx] * 100) + '%';
+    try { localStorage.setItem('fsIdx', idx); } catch(e) {}
+  }
+  applyScale();
+  document.getElementById('fsUp').addEventListener('click', function() {
+    idx = Math.min(idx + 1, sizes.length - 1);
+    applyScale();
+  });
+  document.getElementById('fsDown').addEventListener('click', function() {
+    idx = Math.max(idx - 1, 0);
+    applyScale();
+  });
+  document.getElementById('fsReset').addEventListener('click', function() {
+    idx = 1;
+    applyScale();
+  });
+})();
+</script>
+
+</body>
+</html>
