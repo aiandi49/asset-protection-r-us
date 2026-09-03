@@ -275,8 +275,19 @@ body.dark .theme-toggle { background:var(--white); border-color:var(--border-md)
   .page { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
 }
 </style>
+<style>
+.aprus-back-to-hub{position:fixed;bottom:22px;left:22px;z-index:999;display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(20,80,90,0.22);border-radius:100px;padding:11px 20px 11px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.82rem;font-weight:600;color:#10282A;text-decoration:none;box-shadow:0 8px 26px rgba(10,60,70,0.18);transition:transform 0.15s,box-shadow 0.15s;}
+.aprus-back-to-hub:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(10,60,70,0.22);}
+.aprus-back-to-hub .arrow{font-size:0.9rem;}
+@media (max-width:640px){
+.aprus-back-to-hub{bottom:14px;left:14px;padding:0;width:40px;height:40px;justify-content:center;border-radius:50%;}
+.aprus-back-to-hub .label{display:none;}
+.aprus-back-to-hub .arrow{font-size:1rem;}
+}
+</style>
 </head>
 <body>
+<a class="aprus-back-to-hub" href="../index.html" aria-label="Back to Hub"><span class="arrow">←</span><span class="label">Back to Hub</span></a>
 
 <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
 
