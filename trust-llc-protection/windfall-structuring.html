@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The $750M Playbook — Five Structuring Strategies</title>
+<meta name="theme-color" content="#0B1E22"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --cream:     #F2F9F9;
+  --warm:      #E4F1F1;
+  --stone:     #9FC8CB;
+  --ink:       #10282A;
+  --ink-mid:   #3E5C5E;
+  --ink-mute:  #6E9294;
+  --gold:      #0FA3A8;
+  --gold-lt:   #4ECDC4;
+  --gold-bg:   rgba(15,163,168,0.09);
+  --gold-bdr:  rgba(15,163,168,0.28);
+  --white:     #FFFFFF;
+  --border:    rgba(20,80,90,0.12);
+  --border-md: rgba(20,80,90,0.22);
+  --shadow-sm: 0 2px 8px rgba(10,60,70,0.07);
+  --shadow-md: 0 8px 32px rgba(10,60,70,0.11);
+  --shadow-lg: 0 20px 60px rgba(10,60,70,0.14);
+  --r: 10px;
+  --green:     #2D9C7F;
+  --green-bg:  #E4F7F1;
+  --cyan:      #1868A8;
+  --cyan-bg:   rgba(24,104,168,0.08);
+  --magenta:   #2E86AB;
+  --magenta-bg:rgba(46,134,171,0.08);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; overflow-x:hidden; }
+body {
+  background:var(--cream); color:var(--ink); font-family:'DM Sans',sans-serif;
+  font-weight:400; line-height:1.65;
+}
+body::before {
+  content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(15,163,168,0.08) 0%, transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+}
+.page { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:0 32px 100px; }
+
+/* HERO */
+.hero { padding:64px 0 44px; border-bottom:1px solid var(--border-md); margin-bottom:52px; text-align:left; animation:fadeDown 0.8s ease both; }
+.hero-eyebrow { font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+.hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,7vw,5rem); font-weight:600; line-height:1.02; color:var(--ink); letter-spacing:-0.01em; margin-bottom:18px; }
+.hero-name .accent { color:var(--gold); font-style:italic; }
+.hero-tagline { font-size:1.02rem; color:var(--ink-mute); font-weight:300; max-width:640px; font-style:italic; }
+
+/* DISCLAIMER STRIP */
+.disclaimer { background:var(--gold-bg); border:1px solid var(--gold-bdr); border-radius:var(--r); padding:16px 20px; margin-bottom:48px; font-size:0.82rem; color:var(--ink-mid); line-height:1.7; }
+.disclaimer strong { color:var(--ink); }
+
+/* SECTION LABEL */
+.section-label { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); font-weight:500; margin:56px 0 14px; display:flex; align-items:center; gap:14px; }
+.section-label::after { content:''; flex:1; height:1px; background:var(--border-md); }
+
+/* SECTION DIVIDERS */
+.section-divider { margin:72px 0 0; padding:24px 32px; background:linear-gradient(90deg, var(--gold-bg), transparent); border-top:2px solid var(--gold); border-radius:0 var(--r) var(--r) 0; display:flex; align-items:center; gap:20px; animation:fadeUp 0.5s ease both; }
+.section-divider-label { font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); white-space:nowrap; }
+.section-divider-sep { width:1px; height:28px; background:var(--border-md); }
+.section-divider-title { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:500; color:var(--ink); letter-spacing:0.03em; }
+.section-divider-line { flex:1; height:1px; background:linear-gradient(90deg, var(--border-md), transparent); }
+
+/* TOC */
+.toc-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.toc-item { display:flex; align-items:center; gap:12px; padding:10px 14px; background:var(--cream); border:1px solid var(--border); border-radius:7px; text-decoration:none; color:var(--ink-mid); font-size:0.78rem; transition:all 0.18s; }
+.toc-item:hover { background:var(--warm); border-color:var(--gold-bdr); color:var(--ink); }
+.toc-num { font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--gold); font-weight:600; letter-spacing:0.08em; white-space:nowrap; }
+.toc-title { font-weight:500; color:var(--ink); }
+
+/* CARDS */
+.card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); margin-bottom:16px; box-shadow:var(--shadow-sm); overflow:visible; animation:fadeUp 0.5s ease both; transition:box-shadow 0.2s,border-color 0.2s; }
+.card:hover { box-shadow:var(--shadow-md); border-color:var(--border-md); }
+.card.gold-top { border-top:3px solid var(--gold); }
+.card-header { padding:16px 22px 14px; border-bottom:1px solid var(--border); background:var(--warm); display:flex; align-items:center; gap:12px; border-radius:var(--r) var(--r) 0 0; flex-wrap:wrap; }
+.card-dots { display:flex; gap:5px; }
+.card-dot { width:10px; height:10px; border-radius:50%; }
+.card-dot.r { background:#ff5f57; }
+.card-dot.y { background:#febc2e; }
+.card-dot.g { background:#28c840; }
+.card-filename { font-family:'DM Mono',monospace; font-size:0.72rem; color:var(--ink-mute); letter-spacing:0.04em; flex:1; }
+.card-badge { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; padding:3px 10px; border-radius:100px; white-space:nowrap; }
+.badge-gold    { background:var(--gold-bg);    color:var(--gold);    border:1px solid var(--gold-bdr); }
+.badge-cyan    { background:var(--cyan-bg);    color:var(--cyan);    border:1px solid rgba(26,107,122,0.25); }
+.badge-green   { background:var(--green-bg);   color:var(--green);   border:1px solid rgba(45,122,79,0.25); }
+.badge-magenta { background:var(--magenta-bg); color:var(--magenta); border:1px solid rgba(139,58,98,0.25); }
+.card-body { padding:24px; }
+.card-name { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; color:var(--ink); margin-bottom:10px; }
+.card-desc { font-size:0.9rem; color:var(--ink-mid); line-height:1.75; margin-bottom:18px; }
+.card-subtitle { font-family:'DM Mono',monospace; font-size:0.65rem; color:var(--stone); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; margin-top:20px; }
+.card-subtitle:first-of-type { margin-top:0; }
+
+/* GOALS-STYLE NUMBERED LIST (how it works steps) */
+.steps-list { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:4px; counter-reset:item; }
+.steps-list li { display:flex; align-items:flex-start; gap:12px; font-size:0.86rem; color:var(--ink-mid); padding:11px 14px; background:var(--cream); border:1px solid var(--border); border-radius:7px; counter-increment:item; line-height:1.6; }
+.steps-list li::before { content:counter(item); background:var(--gold-bg); border:1px solid var(--gold-bdr); color:var(--gold); border-radius:50%; width:22px; height:22px; min-width:22px; display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:0.65rem; font-weight:600; margin-top:1px; }
+
+/* PROS / CONS */
+.pc-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:18px; }
+.pc-box { border-radius:8px; padding:14px 16px; border:1px solid var(--border); background:var(--cream); }
+.pc-box.pro { border-color:rgba(45,122,79,0.25); background:var(--green-bg); }
+.pc-box.con { border-color:rgba(139,58,98,0.22); background:var(--magenta-bg); }
+.pc-label { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; font-weight:600; }
+.pc-box.pro .pc-label { color:var(--green); }
+.pc-box.con .pc-label { color:var(--magenta); }
+.pc-box ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.pc-box li { font-size:0.8rem; color:var(--ink-mid); line-height:1.55; padding-left:14px; position:relative; }
+.pc-box.pro li::before { content:'✓'; position:absolute; left:0; color:var(--green); font-weight:600; font-size:0.72rem; }
+.pc-box.con li::before { content:'–'; position:absolute; left:0; color:var(--magenta); font-weight:600; }
+
+.best-for { margin-top:18px; padding:12px 16px; background:var(--warm); border-left:3px solid var(--gold); border-radius:0 7px 7px 0; font-size:0.82rem; color:var(--ink-mid); }
+.best-for strong { color:var(--ink); font-family:'DM Mono',monospace; font-size:0.66rem; letter-spacing:0.1em; text-transform:uppercase; display:block; margin-bottom:5px; color:var(--gold); }
+
+/* ASSUMPTION / FRAMING CARD */
+.assumption-card { background:var(--white); border:1px solid var(--border-md); border-radius:var(--r); padding:24px 28px; margin-bottom:16px; box-shadow:var(--shadow-sm); }
+.assumption-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:600; color:var(--ink); margin-bottom:12px; }
+.assumption-card p { font-size:0.88rem; color:var(--ink-mid); line-height:1.8; }
+.assumption-card p + p { margin-top:12px; }
+.assumption-card .accent-word { color:var(--gold); font-weight:600; }
+
+/* APPLIED-TO-YOU CALLOUT */
+.applied-box { margin-bottom:18px; padding:14px 16px; background:var(--warm); border:1px solid var(--border); border-radius:8px; font-size:0.85rem; color:var(--ink-mid); line-height:1.7; }
+.applied-box strong { display:block; font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+
+/* TAX REALITY BOX */
+.tax-box { border-radius:8px; padding:14px 16px; border:1px solid rgba(24,104,168,0.22); background:var(--cyan-bg); margin-top:14px; }
+.tax-box .pc-label { color:var(--cyan); font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:8px; font-weight:600; }
+.tax-box ul { list-style:none; display:flex; flex-direction:column; gap:6px; }
+.tax-box li { font-size:0.8rem; color:var(--ink-mid); line-height:1.6; padding-left:15px; position:relative; }
+.tax-box li::before { content:'§'; position:absolute; left:0; color:var(--cyan); font-weight:600; font-size:0.74rem; }
+
+/* REGULATORY / CURRENT-LAW NOTE */
+.reg-note { margin-top:14px; padding:12px 16px; background:var(--cyan-bg); border-left:3px solid var(--cyan); border-radius:0 7px 7px 0; font-size:0.8rem; color:var(--ink-mid); line-height:1.65; }
+.reg-note strong { display:block; font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--cyan); margin-bottom:5px; }
+
+/* MEMORIAL / FOUNDATION HEADER */
+.memorial-strip { text-align:center; padding:8px 0 28px; }
+.memorial-name { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.15rem; color:var(--gold); letter-spacing:0.02em; }
+.memorial-dates { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone); margin-top:4px; }
+
+/* STRUCTURE FLOW (two-track diagram) */
+.flow-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:6px; margin-bottom:20px; }
+.flow-col { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:18px 20px; box-shadow:var(--shadow-sm); }
+.flow-col-title { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.flow-node { display:flex; align-items:center; gap:10px; padding:9px 12px; background:var(--cream); border:1px solid var(--border); border-radius:7px; font-size:0.82rem; color:var(--ink-mid); margin-bottom:4px; }
+.flow-node.top { background:var(--gold-bg); border-color:var(--gold-bdr); color:var(--ink); font-weight:600; }
+.flow-node .flow-tag { font-family:'DM Mono',monospace; font-size:0.6rem; color:var(--stone); }
+.flow-arrow { text-align:center; color:var(--stone); font-size:0.9rem; margin:2px 0; }
+.flow-node strong { color:var(--ink); }
+
+/* ENTITY FACT CARD */
+.entity-card { background:var(--white); border:1px solid var(--border-md); border-radius:var(--r); padding:20px 22px; margin-bottom:20px; box-shadow:var(--shadow-sm); }
+.entity-card-title { font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.fact-row { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:8px 0; font-size:0.83rem; border-bottom:1px solid var(--border); }
+.fact-row:last-child { border-bottom:none; }
+.fact-row .k { font-family:'DM Mono',monospace; font-size:0.63rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--stone); white-space:nowrap; padding-top:2px; }
+.fact-row .v { color:var(--ink); font-weight:500; text-align:right; }
+
+/* 10-APPROACH GRID */
+.approach-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; margin-bottom:6px; }
+.approach-card { background:var(--cream); border:1px solid var(--border); border-radius:8px; padding:14px 16px; }
+.approach-num { font-family:'DM Mono',monospace; font-size:0.62rem; color:var(--gold); font-weight:600; letter-spacing:0.08em; display:block; margin-bottom:6px; }
+.approach-title { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--ink); margin-bottom:6px; }
+.approach-desc { font-size:0.8rem; color:var(--ink-mid); line-height:1.6; }
+
+/* COMPARISON TABLE (desktop/tablet) */
+.dir-table-wrap { overflow-x:auto; border-radius:8px; border:1px solid var(--border-md); -webkit-overflow-scrolling:touch; }
+.dir-table { border-collapse:collapse; width:100%; min-width:760px; }
+.dir-table thead tr { background:var(--warm); }
+.dir-table th { padding:12px 14px; text-align:left; font-family:'DM Mono',monospace; font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-mid); border-right:1px solid var(--border); white-space:nowrap; }
+.dir-table th:last-child { border-right:none; }
+.dir-table td { padding:12px 14px; border-right:1px solid var(--border); border-bottom:1px solid var(--border); vertical-align:top; font-size:0.82rem; color:var(--ink-mid); }
+.dir-table td:last-child { border-right:none; }
+.dir-table tbody tr:last-child td { border-bottom:none; }
+.dir-table tbody tr:hover td { background:var(--gold-bg); }
+.dir-table td.strategy-cell { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; color:var(--ink); white-space:nowrap; }
+.dot-rating { display:inline-flex; gap:3px; vertical-align:middle; }
+.dot { width:7px; height:7px; border-radius:50%; background:var(--border-md); display:inline-block; }
+.dot.on { background:var(--gold); }
+
+/* MOBILE COMPARISON CARDS (hidden on desktop) */
+.compare-cards { display:none; flex-direction:column; gap:14px; }
+.compare-card { background:var(--white); border:1px solid var(--border); border-radius:var(--r); padding:18px; box-shadow:var(--shadow-sm); }
+.compare-card-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:var(--ink); margin-bottom:12px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+.compare-row { display:flex; justify-content:space-between; align-items:flex-start; gap:12px; padding:7px 0; font-size:0.82rem; }
+.compare-row .k { font-family:'DM Mono',monospace; font-size:0.64rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--stone); white-space:nowrap; padding-top:2px; }
+.compare-row .v { color:var(--ink-mid); text-align:right; }
+
+/* NEXT STEPS */
+.next-steps-card { background:var(--white); border:1px solid var(--border-md); border-radius:var(--r); padding:26px; box-shadow:var(--shadow-sm); }
+.timeline { display:flex; flex-direction:column; gap:0; }
+.tl-item { display:flex; gap:16px; padding-bottom:22px; position:relative; }
+.tl-item:last-child { padding-bottom:0; }
+.tl-item:not(:last-child)::before { content:''; position:absolute; left:11px; top:26px; bottom:0; width:1px; background:var(--border-md); }
+.tl-dot { width:24px; height:24px; min-width:24px; border-radius:50%; background:var(--gold-bg); border:1px solid var(--gold-bdr); color:var(--gold); display:flex; align-items:center; justify-content:center; font-family:'DM Mono',monospace; font-size:0.68rem; font-weight:600; z-index:1; }
+.tl-body-title { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:600; color:var(--ink); margin-bottom:4px; }
+.tl-body-desc { font-size:0.82rem; color:var(--ink-mid); line-height:1.6; }
+
+/* FOOTER */
+.site-footer { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:32px; border-top:1px solid var(--border-md); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+.footer-name { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:var(--ink); }
+.footer-copy { font-family:'DM Mono',monospace; font-size:0.64rem; color:var(--stone); letter-spacing:0.1em; }
+
+/* DARK MODE TOGGLE */
+.theme-toggle { position:static; width:40px; height:40px; border-radius:50%; background:var(--white); border:1px solid var(--border-md); box-shadow:var(--shadow-md); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; transition:transform 0.2s; }
+.theme-toggle:hover { transform:scale(1.06); }
+.controls-bar { position:fixed; top:20px; right:20px; z-index:50; display:flex; align-items:center; gap:6px; background:var(--white); border:1px solid var(--border-md); border-radius:100px; padding:5px; box-shadow:var(--shadow-md); }
+.fs-btn { width:32px; height:32px; border-radius:50%; border:none; background:transparent; color:var(--ink-mid); font-family:'DM Mono',monospace; font-size:0.72rem; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s,color 0.15s; }
+.fs-btn:hover { background:var(--gold-bg); color:var(--gold); }
+#fsReset { font-size:0.8rem; }
+
+@keyframes fadeDown { from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:none;} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;} }
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+body.dark {
+  --cream: #0B1E22;
+  --warm:  #10282C;
+  --stone: #4E7A7E;
+  --ink:   #EAF6F6;
+  --ink-mid: #B9DADB;
+  --ink-mute: #7FA9AC;
+  --white: #0F2529;
+  --border: rgba(234,246,246,0.09);
+  --border-md: rgba(234,246,246,0.18);
+  --green-bg: rgba(45,156,127,0.16);
+  --magenta-bg: rgba(46,134,171,0.16);
+  --cyan-bg: rgba(24,104,168,0.18);
+}
+body.dark .theme-toggle { background:var(--white); border-color:var(--border-md); }
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   Desktop  : > 1024px  (default styles above)
+   Tablet   : 641–1024px
+   Mobile   : ≤ 640px
+   ============================================================ */
+
+/* ── TABLET (641px – 1024px) ── */
+@media (max-width: 1024px) {
+  .page { padding: 0 24px 80px; }
+  .hero { padding: 48px 0 36px; }
+  .hero-name { font-size: clamp(2.4rem, 6.5vw, 4rem); }
+  .pc-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .section-divider { padding: 20px 24px; }
+}
+
+/* ── MOBILE (≤ 640px) ── */
+@media (max-width: 640px) {
+  .page { padding: 0 16px 100px; }
+  .hero { padding: 40px 0 32px; text-align: center; }
+  .hero-name { font-size: clamp(2.2rem, 11vw, 3.2rem); }
+  .hero-tagline { margin: 0 auto; }
+  .disclaimer { text-align: center; }
+  .section-label { margin: 40px 0 12px; font-size: 0.6rem; justify-content: center; }
+  .section-label::after { display: none; }
+  .section-divider { padding: 16px; flex-wrap: wrap; gap: 10px; margin-top: 48px; justify-content: center; text-align: center; }
+  .section-divider-title { font-size: 1.3rem; width: 100%; text-align: center; }
+  .section-divider-label { width: 100%; text-align: center; }
+  .section-divider-sep, .section-divider-line { display: none; }
+  .toc-grid { grid-template-columns: 1fr; }
+  .toc-item { text-align: left; justify-content: flex-start; }
+  .card-header { padding: 12px 16px 11px; gap: 8px; justify-content: center; }
+  .card-filename { text-align:center; }
+  .card-body { padding: 18px; text-align: center; }
+  .card-name { text-align: center; }
+  .card-desc { text-align: center; }
+  .card-subtitle { text-align: center; }
+  .steps-list li { text-align: left; }
+  .pc-grid { grid-template-columns: 1fr; gap: 10px; }
+  .pc-box { text-align: left; }
+  .best-for { text-align: left; }
+  .assumption-card { text-align: center; }
+  .applied-box { text-align: center; }
+  .tax-box { text-align: left; }
+  .reg-note { text-align: left; }
+  .flow-grid { grid-template-columns: 1fr; gap: 12px; }
+  .flow-col-title { text-align: center; }
+  .flow-node { justify-content: center; text-align: left; }
+  .entity-card { text-align: left; }
+  .fact-row { flex-direction: column; gap: 2px; }
+  .fact-row .v { text-align: left; }
+  .approach-grid { grid-template-columns: 1fr; }
+  .approach-card { text-align: left; }
+  /* comparison table becomes stacked cards on mobile, not horizontal scroll */
+  .dir-table-wrap { display: none; }
+  .compare-cards { display: flex; }
+  .compare-card-title { text-align: center; }
+  .next-steps-card { padding: 20px; }
+  .tl-body-title { text-align: left; }
+  .tl-body-desc { text-align: left; }
+  .site-footer { flex-direction: column; text-align: center; padding: 24px 16px; }
+  .controls-bar { top: 12px; right: 12px; padding: 4px; }
+  .fs-btn { width: 28px; height: 28px; font-size: 0.66rem; }
+  .theme-toggle { width: 34px; height: 34px; font-size: 0.9rem; }
+}
+
+/* ── VERY SMALL PHONES (≤ 380px) ── */
+@media (max-width: 380px) {
+  .page { padding: 0 12px 100px; }
+  .hero-name { font-size: clamp(1.9rem, 12vw, 2.6rem); }
+}
+
+/* SAFE AREA */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .page { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+}
+</style>
+</head>
+<body>
+
+<div class="controls-bar">
+  <button class="fs-btn" id="fsDown" aria-label="Decrease text size">A-</button>
+  <button class="fs-btn" id="fsReset" aria-label="Reset text size">A</button>
+  <button class="fs-btn" id="fsUp" aria-label="Increase text size">A+</button>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+</div>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Hypothetical Windfall Planning · $750,000,000 Through Your LLC</div>
+    <h1 class="hero-name">The Playbook<span class="accent">.</span></h1>
+    <p class="hero-tagline">Same five strategies, taken deeper — this time from the angle of a $750M year run through your existing LLC, protecting what you've built from lawsuits, opportunists, and anyone with their hand out.</p>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Not legal or financial advice.</strong> This assumes a hypothetical scenario: a $750M liquidity event or income year generated through your LLC — a sale, licensing deal, major contract, or similar — and covers how to structure and protect the after-tax proceeds. It does not cover reducing what you legally owe on income already earned; that's a separate, narrower conversation with a tax attorney before any deal closes. State law varies. Set any of this up with an attorney and CPA before signing anything, not after.
+  </div>
+
+  <!-- TOC -->
+  <div class="section-label">Contents</div>
+  <div class="toc-grid">
+    <a href="#framing" class="toc-item"><span class="toc-num">◆</span><span class="toc-title">The Distinction That Matters</span></a>
+    <a href="#s1" class="toc-item"><span class="toc-num">01</span><span class="toc-title">Single Revocable Trust</span></a>
+    <a href="#s2" class="toc-item"><span class="toc-num">02</span><span class="toc-title">LLC + Trust, Layered</span></a>
+    <a href="#s3" class="toc-item"><span class="toc-num">03</span><span class="toc-title">Irrevocable Trust + Asset LLCs</span></a>
+    <a href="#s4" class="toc-item"><span class="toc-num">04</span><span class="toc-title">Domestic Asset Protection Trust</span></a>
+    <a href="#s5" class="toc-item"><span class="toc-num">05</span><span class="toc-title">Private Trust Co. + FLP</span></a>
+    <a href="#compare" class="toc-item"><span class="toc-num">◆</span><span class="toc-title">Comparison Table</span></a>
+    <a href="#foundation" class="toc-item"><span class="toc-num">◆</span><span class="toc-title">The Janet Marie Ross Foundation</span></a>
+    <a href="#foundation" class="toc-item"><span class="toc-num">◆</span><span class="toc-title">MetaEarth Trust &amp; VTREI Structure</span></a>
+  </div>
+
+  <!-- FRAMING SECTION -->
+  <div class="section-divider" id="framing">
+    <div class="section-divider-label">Before Any Strategy</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">The Distinction That Changes Everything</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="assumption-card">
+    <h3>Protecting money is not the same as un-earning it</h3>
+    <p>With a lottery ticket, the win doesn't legally exist until you claim it — so a trust or LLC can be the one that claims it. Business income through your LLC is different: under what's called the <span class="accent-word">assignment-of-income doctrine</span>, the IRS taxes income to whoever actually earned it, regardless of what entity you route the check through afterward. You can't interpose a new trust or LLC after the deal closes and have the $750M taxed to that entity instead of you — the law looks through the paperwork to who did the work or owned the asset that generated the value.</p>
+    <p>That means all five strategies below are about <span class="accent-word">what happens to the money after it's taxed and in your hands</span> — protecting it from lawsuits, creditors, opportunistic relationships, and probate exposure — not about avoiding the tax bill itself. The one place timing genuinely changes the tax outcome is if the $750M comes from selling an ownership stake (equity) rather than ordinary business profit, and even then the entity work has to happen years before the sale, not after a deal is on the table. If reducing the tax bill itself is part of the goal, that's a distinct pre-transaction conversation with a tax attorney — ideally 12-24 months before any sale or major contract is signed.</p>
+  </div>
+
+  <!-- STRATEGY 1 -->
+  <div class="section-divider" id="s1">
+    <div class="section-divider-label">Strategy 01</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Single Revocable Trust Claim</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">revocable-trust-claim.strategy</div>
+      <span class="card-badge badge-gold">Simplest</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Claim Through a Revocable Living Trust</div>
+      <p class="card-desc">A trust is formed with a neutral name, and once the $750M lands — as a distribution from your LLC, a sale payout, or a licensing check — it's deposited into and titled in the name of the trust rather than held in your personal name. You remain trustee and retain full control the entire time.</p>
+
+      <div class="applied-box">
+        <strong>Applied to your LLC year</strong>
+        Your LLC still earns the income and still reports it to you (via K-1 if it's a partnership/S-corp, or directly if it's a disregarded single-member LLC) — the trust doesn't change that. What it does is give the after-tax cash a home that isn't your personal name the moment it's distributed out of the business, keeping it off easily searchable personal-asset records like real estate and vehicle titles.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>Form a revocable living trust with an attorney, naming a neutral trustee identity — this can happen anytime, even now, well before any payout</li>
+        <li>Retitle your LLC membership interest itself into the trust's name, so future distributions flow to the trust as the member of record</li>
+        <li>The trust holds a dedicated bank account that receives distributions directly from the LLC, rather than routing through your personal checking</li>
+        <li>You continue managing everything as trustee — this is an ownership/paperwork change, not a control change</li>
+        <li>A pour-over will ensures anything that somehow lands outside the trust still funnels into it at death, avoiding probate on those assets</li>
+      </ul>
+
+      <div class="tax-box">
+        <div class="pc-label">Tax Reality</div>
+        <ul>
+          <li>A revocable trust is a "grantor trust" — every dollar is still reported and taxed on your personal Form 1040, exactly as if the trust didn't exist</li>
+          <li>No tax savings, no tax deferral, no change in character (ordinary income stays ordinary, capital gains stay capital gains)</li>
+          <li>On $750M of ordinary business income, combined federal rates (37% top bracket + 3.8% net investment income tax where applicable) put the federal bill in the $280M–$310M range before any state tax — the trust doesn't move that number</li>
+        </ul>
+      </div>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Strengths</div>
+          <ul>
+            <li>Can be set up today, before any deal even closes</li>
+            <li>Keeps your name off easily searchable personal asset records</li>
+            <li>Zero loss of control — you run it exactly as before</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Trade-offs</div>
+          <ul>
+            <li>Offers no protection at all from lawsuits, judgments, or creditors — legally it's still your money</li>
+            <li>A judgment creditor can compel you, as trustee, to satisfy a debt from trust assets</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>The very first move — set this up now, before the $750M event happens, then layer real protection on top once funds land.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY 2 -->
+  <div class="section-divider" id="s2">
+    <div class="section-divider-label">Strategy 02</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">LLC as Claimant, Trust as Owner</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">llc-trust-layer.strategy</div>
+      <span class="card-badge badge-cyan">Two-Layer</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">A Second, Anonymous Holding LLC Owned by a Trust</div>
+      <p class="card-desc">Rather than distributions landing directly in your name, a second LLC — formed in a privacy-friendly state — becomes the vehicle that receives and holds the after-tax proceeds. That holding LLC is itself wholly owned by a trust, so two layers sit between your name and any public record.</p>
+
+      <div class="applied-box">
+        <strong>Applied to your LLC year</strong>
+        This is not about your original operating LLC (the one that actually earned the $750M) — that entity's ownership and activity already happened and is what it is for tax purposes. This strategy is about where the money goes <em>after</em> it's distributed out: a fresh holding company, unconnected on paper to your operating business, becomes the thing that owns your investments, real estate, and liquid assets going forward.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>Form a new holding LLC in Delaware, Wyoming, or New Mexico — states where member names aren't part of the public formation filing</li>
+        <li>Use a commercial registered agent so your home or office address never appears on the public record</li>
+        <li>Draft an operating agreement naming a trust — not you personally — as the sole member</li>
+        <li>Distributions from your operating LLC flow to you, then are contributed into the holding LLC as capital, where they're invested and managed</li>
+        <li>Open the holding LLC's bank and brokerage accounts under its EIN, with the trust's authorized signers handling day-to-day access</li>
+      </ul>
+
+      <div class="reg-note">
+        <strong>Current federal rule, as of August 2026</strong>
+        The Corporate Transparency Act originally required nearly all LLCs to report their beneficial owners to FinCEN. As of a final rule effective August 14, 2026, U.S. persons and U.S.-formed entities are permanently exempted from that reporting requirement — only foreign entities registering to do business in the U.S. remain in scope. This rule has been through several reversals since 2024, so confirm current status with your attorney before relying on it, but as things stand, a U.S.-formed holding LLC does not need to file beneficial ownership information with the federal government.
+      </div>
+
+      <div class="tax-box">
+        <div class="pc-label">Tax Reality</div>
+        <ul>
+          <li>Moving after-tax cash into a new LLC is not a taxable event — you're contributing your own already-taxed money as capital</li>
+          <li>If the holding LLC is single-member (owned by your trust) it's a "disregarded entity" by default — its income still flows to the trust's tax return, and since your trust is revocable, ultimately to your personal return</li>
+          <li>No tax reduction here either — this layer is purely about ownership visibility, not tax character</li>
+        </ul>
+      </div>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Strengths</div>
+          <ul>
+            <li>Two layers between your name and any public-facing ownership record</li>
+            <li>Clean, separate vehicle for future investments, real estate, or new ventures</li>
+            <li>No federal BOI filing burden under the current rule</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Trade-offs</div>
+          <ul>
+            <li>Banks still require you to disclose beneficial ownership to open accounts, regardless of federal filing rules — this protects you from public searches, not from your bank or the IRS</li>
+            <li>The BOI exemption has reversed direction multiple times since 2024 and could change again</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>Wanting a real paper-trail barrier between your name and your holdings, once the money has already been earned and taxed.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY 3 -->
+  <div class="section-divider" id="s3">
+    <div class="section-divider-label">Strategy 03</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Irrevocable Trust + Asset-Specific LLCs</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">irrevocable-segmented.strategy</div>
+      <span class="card-badge badge-green">Protection-Focused</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Segmented Holdings Under One Irrevocable Trust</div>
+      <p class="card-desc">Once the after-tax proceeds are in hand, a portion moves into an irrevocable trust — a real transfer of legal control in exchange for real creditor protection. Underneath that trust sit separate LLCs by asset category: one for real estate, one for a taxable investment portfolio, one for any new business ventures you start with the proceeds.</p>
+
+      <div class="applied-box">
+        <strong>Applied to your LLC year</strong>
+        This is where your original operating LLC — the one that generated the $750M — gets walled off from your new personal wealth. If a customer, employee, or business partner ever sues the operating company, that lawsuit can't reach your investment portfolio or your house if they sit in a separate irrevocable trust structure with no ownership overlap. Keep the operating business's liability entirely separate from where you park your wealth.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>An independent trustee — often a corporate/institutional trustee, sometimes a trusted attorney — is named; you cannot serve as your own trustee for this to hold up as irrevocable</li>
+        <li>You irrevocably gift or transfer a portion of the after-tax proceeds into the trust — this uses part of your lifetime gift/estate tax exemption ($15M per individual in 2026) if done as a completed gift, or can be structured as a sale to an intentionally defective grantor trust to avoid using exemption</li>
+        <li>Separate LLCs are formed for real estate, investments, and any new ventures, each owned by the trust</li>
+        <li>Maintain rigorous separation — separate bank accounts, separate books, no commingling — or a court can "pierce the veil" and treat the LLCs as your personal assets anyway</li>
+        <li>Keep your original operating LLC (the one that earned the $750M) entirely outside this structure, so its ongoing liabilities never touch your protected wealth</li>
+      </ul>
+
+      <div class="tax-box">
+        <div class="pc-label">Tax Reality</div>
+        <ul>
+          <li>Funding an irrevocable trust with more than the annual exclusion ($19,000 per recipient in 2026) requires filing a gift tax return and uses part of your $15M lifetime exemption</li>
+          <li>Beyond that exemption, gift tax applies at up to 40% on the amount transferred — so most people fund these gradually or use trust structures designed to avoid immediate gift tax (like a sale to a defective grantor trust) rather than gifting the full amount at once</li>
+          <li>Once irrevocable, income the trust's LLCs generate is typically taxed to the trust itself at compressed trust tax brackets (top rate hits at roughly $15,000 of trust income) unless structured as a grantor trust for tax purposes while still being irrevocable for asset-protection purposes</li>
+        </ul>
+      </div>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Strengths</div>
+          <ul>
+            <li>Real, court-tested protection from lawsuits and creditors</li>
+            <li>Liability in one asset bucket can't spread into the others</li>
+            <li>Keeps your operating business's risk from ever touching your personal wealth</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Trade-offs</div>
+          <ul>
+            <li>You give up direct legal control — the independent trustee makes distribution decisions</li>
+            <li>Large transfers trigger gift tax planning and use of lifetime exemption</li>
+            <li>More ongoing accounting and administration across several entities</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>Actually separating your business's liability exposure from your personal wealth — the step most people wish they'd taken before, not after, something goes wrong.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY 4 -->
+  <div class="section-divider" id="s4">
+    <div class="section-divider-label">Strategy 04</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Domestic Asset Protection Trust</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">dapt-self-settled.strategy</div>
+      <span class="card-badge badge-magenta">Specialist Jurisdiction</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">A DAPT in Nevada, South Dakota, or Delaware</div>
+      <p class="card-desc">A Domestic Asset Protection Trust is a special irrevocable trust — legal in roughly 19 states — that lets you be both the person who created it and a discretionary beneficiary, unlike ordinary irrevocable trusts. Nevada (NRS Chapter 166) and South Dakota lead here for short "look-back" periods, strong statutory protection, no state income tax on trust earnings, and dynasty-trust durations that can run for centuries.</p>
+
+      <div class="applied-box">
+        <strong>Applied to your LLC year</strong>
+        This is the structure worth considering for the bulk of your $750M after taxes — especially if any part of your business relationship with clients, partners, or investors carries real litigation risk (equity deals, licensing disputes, joint ventures). A DAPT lets you fund it with your own after-tax proceeds while still being allowed to receive distributions from it later, which the plain irrevocable trust in Strategy 03 doesn't allow you to do as cleanly.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>Retain an attorney licensed in the chosen DAPT state — your home-state attorney can advise but generally can't draft the trust itself</li>
+        <li>An in-state trustee (often a trust company) is required to administer the trust and hold at least some assets within that state</li>
+        <li>You're named a discretionary beneficiary, so the trustee can make distributions back to you for your benefit, at their discretion</li>
+        <li>Fund it with proceeds well before any dispute, lawsuit, or contract exists against you — Nevada's "look-back" period for challenging a transfer as fraudulent is 2 years, one of the shortest in the country; other states run 4 years</li>
+        <li>Keep meticulous records showing solvency at the time of transfer — the protection can be unwound if you were already insolvent or facing a known claim when you funded it</li>
+      </ul>
+
+      <div class="tax-box">
+        <div class="pc-label">Tax Reality</div>
+        <ul>
+          <li>Most DAPTs are drafted as "grantor trusts" for tax purposes even though they're irrevocable for asset-protection purposes — meaning the income is still taxed on your personal return, which is actually a feature: it lets the trust assets grow tax-free of trust-level tax while you pay the income tax personally, effectively an additional (legal) gift to the trust each year</li>
+          <li>Funding it still counts against your lifetime gift exemption if it's a completed gift beyond the annual exclusion</li>
+          <li>Nevada and South Dakota impose no state income tax on the trust's investment earnings, which matters if you're domiciled in a high-tax state — though your personal income tax residency (not the trust's situs) generally still governs the income taxed to you as grantor</li>
+        </ul>
+      </div>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Strengths</div>
+          <ul>
+            <li>Statute-backed creditor protection with a short look-back period in Nevada</li>
+            <li>You can still benefit personally as a discretionary beneficiary</li>
+            <li>Favorable state tax treatment on trust investment growth</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Trade-offs</div>
+          <ul>
+            <li>Requires out-of-state counsel and an in-state trustee relationship</li>
+            <li>Protection is void against a creditor whose claim existed before funding — timing is everything</li>
+            <li>Some states (notably not Nevada or South Dakota) still don't recognize other states' DAPT protections if litigation happens there</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>The core of your long-term wealth once liquid, especially if your business dealings carry real litigation exposure — fund it early and let the look-back period run out.</div>
+    </div>
+  </div>
+
+  <!-- STRATEGY 5 -->
+  <div class="section-divider" id="s5">
+    <div class="section-divider-label">Strategy 05</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Private Trust Company + Family Limited Partnership</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">ptc-flp-structure.strategy</div>
+      <span class="card-badge badge-gold">Most Comprehensive</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">Your Own Trust Company Over a Family Limited Partnership</div>
+      <p class="card-desc">The most elaborate structure here, typically used above the $100M mark. You charter your own Private Trust Company to serve as trustee across all your trusts, controlled by a board you appoint rather than an outside institution. Underneath, a Family Limited Partnership holds investment and business assets — you or the PTC hold the general-partner control seat, your trusts hold limited-partner economic interests.</p>
+
+      <div class="applied-box">
+        <strong>Applied to your LLC year</strong>
+        At $750M, this is the structure that treats the money as a family enterprise rather than a personal windfall — built to run your operating business, any new ventures you start, and your investment portfolio all under one governance umbrella, and to outlast you. It's overkill if the goal is simply "protect this from a lawsuit," but it's the right scale if the goal is building something that runs for decades and eventually passes to family.
+      </div>
+
+      <div class="card-subtitle">How it works</div>
+      <ul class="steps-list">
+        <li>Charter a Private Trust Company, typically in South Dakota, Wyoming, or Nevada, under that state's PTC statute</li>
+        <li>Appoint a board — yourself, an outside attorney, a CPA, and eventually adult children — to govern trustee decisions across all family trusts</li>
+        <li>Form a Family Limited Partnership to hold investment assets and equity in your operating and any future businesses</li>
+        <li>Contribute assets to the FLP in exchange for a general-partner interest (control) and limited-partner interests (economic value), then gift or sell the limited-partner interests into trusts held by the PTC</li>
+        <li>Because limited-partner interests lack control and are hard to sell, they're typically valued at a 20%–35% discount for gift and estate tax purposes — meaning more value can move into trusts per dollar of your $15M lifetime exemption used</li>
+      </ul>
+
+      <div class="tax-box">
+        <div class="pc-label">Tax Reality</div>
+        <ul>
+          <li>The 2026 federal lifetime gift/estate tax exemption is $15M per person ($30M for a married couple), made permanent and inflation-indexed under recent legislation — meaningful at this scale but nowhere near enough to shelter $750M without valuation discounting and years of structured transfers</li>
+          <li>Valuation discounts on FLP interests are real and IRS-recognized, but must be supported by an independent appraisal — aggressive, unsupported discounts are a common audit target</li>
+          <li>A PTC itself doesn't reduce taxes; it's a governance vehicle. The tax efficiency comes from the FLP discounting and from generation-skipping trust techniques layered on top over years, not from the PTC structure itself</li>
+        </ul>
+      </div>
+
+      <div class="pc-grid">
+        <div class="pc-box pro">
+          <div class="pc-label">Strengths</div>
+          <ul>
+            <li>Control stays with people you choose, not an outside institution</li>
+            <li>Combines protection, control, and legitimate gift/estate tax efficiency in one build</li>
+            <li>Built to operate across generations, not just your lifetime</li>
+          </ul>
+        </div>
+        <div class="pc-box con">
+          <div class="pc-label">Trade-offs</div>
+          <ul>
+            <li>Highest cost and complexity of the five — a standing professional team, not a single attorney</li>
+            <li>Valuation discount strategies draw IRS scrutiny and need defensible appraisals</li>
+            <li>Overkill unless multi-generational planning is genuinely the goal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="best-for"><strong>Best for</strong>Thinking in decades, not years — long-term family governance, control, and legitimate tax efficiency built into one structure from the start.</div>
+    </div>
+  </div>
+
+  <!-- COMPARISON -->
+  <div class="section-divider" id="compare">
+    <div class="section-divider-label">At a Glance</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">Comparison Table</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <!-- Desktop/tablet table -->
+  <div class="dir-table-wrap">
+    <table class="dir-table">
+      <thead>
+        <tr>
+          <th>Strategy</th>
+          <th>Anonymity</th>
+          <th>Asset Protection</th>
+          <th>Complexity</th>
+          <th>Your Control</th>
+          <th>Typical Setup Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="strategy-cell">01 · Revocable Trust</td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></td>
+          <td>Low</td>
+          <td>Full</td>
+          <td>$3K – $10K</td>
+        </tr>
+        <tr>
+          <td class="strategy-cell">02 · LLC + Trust</td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span></td>
+          <td>Low–Med</td>
+          <td>Full</td>
+          <td>$8K – $20K</td>
+        </tr>
+        <tr>
+          <td class="strategy-cell">03 · Irrevocable + Asset LLCs</td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></td>
+          <td>Medium</td>
+          <td>Shared w/ Trustee</td>
+          <td>$25K – $75K</td>
+        </tr>
+        <tr>
+          <td class="strategy-cell">04 · DAPT</td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot on"></span><span class="dot"></span></span></td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></td>
+          <td>Medium–High</td>
+          <td>Beneficiary Rights</td>
+          <td>$30K – $90K</td>
+        </tr>
+        <tr>
+          <td class="strategy-cell">05 · PTC + FLP</td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></td>
+          <td><span class="dot-rating"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span></span></td>
+          <td>High</td>
+          <td>Full, via PTC Board</td>
+          <td>$150K+</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Mobile stacked cards -->
+  <div class="compare-cards">
+    <div class="compare-card">
+      <div class="compare-card-title">01 · Revocable Trust</div>
+      <div class="compare-row"><span class="k">Anonymity</span><span class="v">Moderate</span></div>
+      <div class="compare-row"><span class="k">Protection</span><span class="v">Low</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">Low</span></div>
+      <div class="compare-row"><span class="k">Control</span><span class="v">Full</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$3K – $10K</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-title">02 · LLC + Trust</div>
+      <div class="compare-row"><span class="k">Anonymity</span><span class="v">High</span></div>
+      <div class="compare-row"><span class="k">Protection</span><span class="v">Low</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">Low–Med</span></div>
+      <div class="compare-row"><span class="k">Control</span><span class="v">Full</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$8K – $20K</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-title">03 · Irrevocable + Asset LLCs</div>
+      <div class="compare-row"><span class="k">Anonymity</span><span class="v">Moderate</span></div>
+      <div class="compare-row"><span class="k">Protection</span><span class="v">High</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">Medium</span></div>
+      <div class="compare-row"><span class="k">Control</span><span class="v">Shared w/ Trustee</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$25K – $75K</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-title">04 · DAPT</div>
+      <div class="compare-row"><span class="k">Anonymity</span><span class="v">Moderate</span></div>
+      <div class="compare-row"><span class="k">Protection</span><span class="v">High</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">Med–High</span></div>
+      <div class="compare-row"><span class="k">Control</span><span class="v">Beneficiary Rights</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$30K – $90K</span></div>
+    </div>
+    <div class="compare-card">
+      <div class="compare-card-title">05 · PTC + FLP</div>
+      <div class="compare-row"><span class="k">Anonymity</span><span class="v">High</span></div>
+      <div class="compare-row"><span class="k">Protection</span><span class="v">High</span></div>
+      <div class="compare-row"><span class="k">Complexity</span><span class="v">High</span></div>
+      <div class="compare-row"><span class="k">Control</span><span class="v">Full, via PTC Board</span></div>
+      <div class="compare-row"><span class="k">Setup Cost</span><span class="v">$150K+</span></div>
+    </div>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="section-divider">
+    <div class="section-divider-label">Sequencing</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">The Order That Actually Matters</div>
+    <div class="section-divider-line"></div>
+  </div>
+  <div class="next-steps-card">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">1</div>
+        <div>
+          <div class="tl-body-title">Set up the revocable trust now, before the event</div>
+          <div class="tl-body-desc">This costs little and takes days — do it regardless of which deeper strategy you pursue later, so the first dollar in already has a better home than your personal name.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">2</div>
+        <div>
+          <div class="tl-body-title">Bring in a tax attorney before any sale or contract signs</div>
+          <div class="tl-body-desc">If the $750M involves selling equity rather than ordinary business profit, entity and timing decisions made before signing can matter — after signing, that door is closed.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">3</div>
+        <div>
+          <div class="tl-body-title">Bring in a high-net-worth CPA for the tax bill itself</div>
+          <div class="tl-body-desc">At this scale, expect the federal bill alone to land somewhere in the $175M–$310M range depending on income character — plan estimated payments and liquidity for that before spending or transferring anything.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">4</div>
+        <div>
+          <div class="tl-body-title">Layer in protection once after-tax cash is in hand</div>
+          <div class="tl-body-desc">This is where Strategies 02 through 05 come in — choose based on how much litigation risk your business actually carries and how long a time horizon you're planning for.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">5</div>
+        <div>
+          <div class="tl-body-title">Add a wealth manager last</div>
+          <div class="tl-body-desc">Once the legal and tax structure is settled, investment allocation across the trust and any LLCs can be planned properly — not before.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOUNDATION -->
+  <div class="section-divider" id="foundation">
+    <div class="section-divider-label">The Charitable Layer</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">The Janet Marie Ross Foundation</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="memorial-strip">
+    <div class="memorial-name">In loving memory of Janet Marie Ross</div>
+    <div class="memorial-dates">Established by The MetaEarth Initiative Trust</div>
+  </div>
+
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">janet-marie-ross-foundation.strategy</div>
+      <span class="card-badge badge-magenta">In Her Name</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">A Private Foundation, Funded by the Trust</div>
+      <p class="card-desc">A 501(c)(3) private foundation carrying Janet's name, funded by distributions from the irrevocable trust (Strategy 03 or 04) rather than sitting inside your operating business. Its mission: support for women, children, and animals, and direct help for people who've experienced abuse, homelessness, or hardship. This is a genuine giving vehicle, not a tax-avoidance play — though it does carry the tax treatment described below, since that's simply how the law treats charitable giving.</p>
+
+      <div class="applied-box">
+        <strong>How the money reaches it</strong>
+        The MetaEarth Initiative Trust — not VTREI, LLC, and not the new acquisition holding company below — is the funding source. Keeping the foundation's money separate from every operating business means a lawsuit against one of the companies can never reach Janet's foundation, and the foundation's activities can never create liability for the businesses either. Clean separation both directions.
+      </div>
+
+      <div class="card-subtitle">Forming It</div>
+      <ul class="steps-list">
+        <li>Incorporate a nonprofit corporation in your home state, naming it the Janet Marie Ross Foundation, with a board of at least three directors (most states require this, and it can't just be you)</li>
+        <li>Draft bylaws and a mission statement — spell out the four focus areas now (women, children, animals, survivors of abuse/homelessness) so grant-making has a clear mandate from day one</li>
+        <li>File IRS Form 1023 for 501(c)(3) recognition — for a foundation this well-funded, use the full Form 1023, not the short-form 1023-EZ, and expect legal fees in the $10K–$25K range plus several months of IRS review</li>
+        <li>Get an EIN for the foundation, separate from every LLC in the structure</li>
+        <li>Register for charitable solicitation in any state where you'll actively fundraise or promote the foundation beyond your own funding</li>
+        <li>The trust makes its first funding distribution only after 501(c)(3) status is approved, so the gift qualifies for charitable tax treatment from day one</li>
+      </ul>
+
+      <div class="tax-box">
+        <div class="pc-label">Tax Reality</div>
+        <ul>
+          <li>Gifts from the trust to the foundation are tax-deductible for income tax purposes up to 30% of adjusted gross income for cash gifts to a private foundation in a given year, with any excess carried forward up to five years</li>
+          <li>The foundation itself pays a flat 1.39% excise tax on its net investment income (interest, dividends, capital gains) — a genuine cost of doing this as a private foundation rather than through a donor-advised fund</li>
+          <li>Private foundations must distribute roughly 5% of average net investment assets each year in grants or qualifying activities — build that into how the trust funds it, since underfunding one year creates a compliance problem the next</li>
+          <li>Self-dealing rules are strict here: you and your family can serve on the board and set grant direction, but the foundation can't pay you above-market salary, buy assets from you, or lease property from any entity you control — violations carry personal excise tax penalties, not just foundation-level ones</li>
+        </ul>
+      </div>
+
+      <div class="reg-note">
+        <strong>Worth knowing before you file</strong>
+        A donor-advised fund at an existing community foundation is a real alternative if the goal is mainly to give effectively without running your own compliance calendar — no excise tax, no minimum distribution requirement, no separate board or Form 1023. You'd lose the standalone name recognition and full control a private foundation gives you, but for many families it's the simpler path to the same charitable outcome. Worth discussing with counsel before committing to the private foundation route.
+      </div>
+
+      <div class="best-for"><strong>Best for</strong>Making sure Janet's name carries forward doing exactly what you intend — support for women, children, animals, and people rebuilding after abuse or homelessness — funded cleanly from the trust, walled off from every operating business.</div>
+    </div>
+  </div>
+
+  <div class="section-label">How This Sits Alongside VTREI, LLC</div>
+  <div class="flow-grid">
+    <div class="flow-col">
+      <div class="flow-col-title">Charitable Track</div>
+      <div class="flow-node top">The MetaEarth Initiative Trust</div>
+      <div class="flow-arrow">↓ funds</div>
+      <div class="flow-node"><strong>Janet Marie Ross Foundation</strong> <span class="flow-tag">501(c)(3)</span></div>
+    </div>
+    <div class="flow-col">
+      <div class="flow-col-title">Business Track</div>
+      <div class="flow-node top">The MetaEarth Initiative Trust</div>
+      <div class="flow-arrow">↓ owns</div>
+      <div class="flow-node"><strong>VTREI, LLC</strong> <span class="flow-tag">AI · blockchain · software</span></div>
+      <div class="flow-node"><strong>Acquisition Holding Co.</strong> <span class="flow-tag">real estate · securities · new ventures</span></div>
+    </div>
+  </div>
+
+  <div class="entity-card">
+    <div class="entity-card-title">The Entity That Already Exists</div>
+    <div class="fact-row"><span class="k">Legal Name</span><span class="v">VTREI, LLC</span></div>
+    <div class="fact-row"><span class="k">Founded</span><span class="v">July 2020</span></div>
+    <div class="fact-row"><span class="k">Founder &amp; CEO</span><span class="v">Lamar Myers</span></div>
+    <div class="fact-row"><span class="k">Business Address</span><span class="v">Tucson, Arizona</span></div>
+    <div class="fact-row"><span class="k">Industry</span><span class="v">AI, Blockchain, Software Development</span></div>
+    <div class="fact-row"><span class="k">Flagship Initiative</span><span class="v">The MetaEarth ecosystem &amp; universal wallet</span></div>
+  </div>
+
+  <div class="applied-box">
+    <strong>The one restructuring move that matters most</strong>
+    Right now, VTREI, LLC is owned directly by you personally — which means everything it does (the MetaEarth ecosystem, token systems, smart contracts, the AI SuperSuite offerings) carries liability that reaches straight to you. Moving VTREI's membership interest into The MetaEarth Initiative Trust — the same DAPT or PTC structure from Strategy 04 or 05 — puts a legal wall between the company's activity and your personal assets, while the trust becoming both VTREI's owner and the foundation's funding source keeps the whole vision, business and charity both, under one coherent umbrella carrying Janet's and your own legacy forward together.
+  </div>
+
+  <!-- ACQUISITION HOLDING COMPANY -->
+  <div class="section-divider">
+    <div class="section-divider-label">New Entity</div>
+    <div class="section-divider-sep"></div>
+    <div class="section-divider-title">A Diversified Acquisition Holding Company</div>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="card gold-top">
+    <div class="card-header">
+      <div class="card-dots"><span class="card-dot r"></span><span class="card-dot y"></span><span class="card-dot g"></span></div>
+      <div class="card-filename">acquisition-holdco.strategy</div>
+      <span class="card-badge badge-cyan">To Be Formed</span>
+    </div>
+    <div class="card-body">
+      <div class="card-name">A Second LLC, Purpose-Built to Acquire and Diversify</div>
+      <p class="card-desc">VTREI, LLC is your operating tech company — building it out with acquisitions would mix operating risk with investment risk. A second, separate LLC (working name used below: "MetaEarth Capital, LLC" — pick whatever you actually want to file) owned by the same MetaEarth Initiative Trust gives you a clean, dedicated vehicle for buying real estate, securities, and other businesses with the proceeds, without any of that touching VTREI's balance sheet or liability.</p>
+
+      <div class="card-subtitle">Ten Ways to Deploy It</div>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <span class="approach-num">01</span>
+          <div class="approach-title">Direct Rental Real Estate</div>
+          <div class="approach-desc">Buy and hold income-producing residential or small multifamily property directly — full control, but hands-on management and concentrated risk in one city's market.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">02</span>
+          <div class="approach-title">Private Real Estate Syndications</div>
+          <div class="approach-desc">Passive investments alongside a sponsor in larger multifamily or commercial deals — real estate exposure across multiple markets without being the landlord.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">03</span>
+          <div class="approach-title">Publicly Traded REITs</div>
+          <div class="approach-desc">Liquid, exchange-traded real estate exposure — the easiest way to diversify property type and geography, tradeable in a brokerage account the holding company controls.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">04</span>
+          <div class="approach-title">A Core Index Fund Portfolio</div>
+          <div class="approach-desc">Broad stock and bond index funds as the steady, low-cost foundation of the holding company — the unglamorous majority allocation that most large family portfolios actually run on.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">05</span>
+          <div class="approach-title">A Municipal Bond Ladder</div>
+          <div class="approach-desc">Federally tax-exempt fixed income, laddered across maturities — a fit for the top tax bracket you're in, providing income without adding to the federal tax bill.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">06</span>
+          <div class="approach-title">Qualified Opportunity Fund Investments</div>
+          <div class="approach-desc">Now permanent under 2025 tax legislation: capital gains reinvested into a Qualified Opportunity Fund get a rolling 5-year deferral, a 10% basis step-up (30% for rural zones), and no tax at all on the new gains if held 10+ years. New zone designations take effect January 1, 2027.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">07</span>
+          <div class="approach-title">Small Business Acquisition (a "Roll-Up")</div>
+          <div class="approach-desc">Buy a handful of small, profitable, already-operating businesses — a search-fund style approach that builds cash-flowing assets faster than starting new ventures from zero.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">08</span>
+          <div class="approach-title">Strategic Land Banking</div>
+          <div class="approach-desc">Acquire raw or underdeveloped land in growth corridors around Tucson and Phoenix ahead of infrastructure and population growth — patient capital, low carrying cost, real upside if the area develops.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">09</span>
+          <div class="approach-title">Venture & Private Equity Sleeve</div>
+          <div class="approach-desc">A small, capped allocation (many family offices cap this at 5–10% of the portfolio) into early-stage AI or blockchain companies — letting you stay close to VTREI's world without putting VTREI's own balance sheet at risk.</div>
+        </div>
+        <div class="approach-card">
+          <span class="approach-num">10</span>
+          <div class="approach-title">A "Give-Back" Allocation Sleeve</div>
+          <div class="approach-desc">Since MetaEarth's own vision already centers on a community give-back economy, a defined slice of the holding company's returns could flow to the Janet Marie Ross Foundation each year — tying your business philosophy and her memorial together on purpose, not by accident.</div>
+        </div>
+      </div>
+
+      <div class="reg-note">
+        <strong>Worth knowing</strong>
+        Opportunity Zone designations are being redrawn under 2025 legislation — the current zones sunset December 31, 2026, and new ones take effect January 1, 2027. Any Opportunity Zone investment made through this holding company should be timed and located against the new map, not the old one, once it's published.
+      </div>
+
+      <div class="best-for"><strong>Best for</strong>Turning the after-tax proceeds into a real, diversified portfolio — spanning real estate, securities, and new ventures — deliberately separated from VTREI's operating risk and quietly aligned with what MetaEarth already stands for.</div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-name">The Playbook</div>
+  <div class="footer-copy">GENERAL INFORMATION · NOT LEGAL OR FINANCIAL ADVICE</div>
+</footer>
+
+<script>
+(function() {
+  var toggle = document.getElementById('themeToggle');
+  var body = document.body;
+  function applyTheme(isDark) {
+    body.classList.toggle('dark', isDark);
+    toggle.textContent = isDark ? '☀️' : '🌙';
+    try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch(e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch(e) {}
+  applyTheme(saved === 'dark'); // defaults to light unless the visitor already chose dark
+  toggle.addEventListener('click', function() {
+    applyTheme(!body.classList.contains('dark'));
+  });
+
+  var sizes = [0.9, 1, 1.1, 1.22];
+  var idx = 1;
+  try {
+    var savedIdx = parseInt(localStorage.getItem('fsIdx'), 10);
+    if (!isNaN(savedIdx) && savedIdx >= 0 && savedIdx < sizes.length) idx = savedIdx;
+  } catch(e) {}
+  function applyScale() {
+    document.documentElement.style.fontSize = (sizes[idx] * 100) + '%';
+    try { localStorage.setItem('fsIdx', idx); } catch(e) {}
+  }
+  applyScale();
+  document.getElementById('fsUp').addEventListener('click', function() {
+    idx = Math.min(idx + 1, sizes.length - 1);
+    applyScale();
+  });
+  document.getElementById('fsDown').addEventListener('click', function() {
+    idx = Math.max(idx - 1, 0);
+    applyScale();
+  });
+  document.getElementById('fsReset').addEventListener('click', function() {
+    idx = 1;
+    applyScale();
+  });
+})();
+</script>
+
+</body>
+</html>
