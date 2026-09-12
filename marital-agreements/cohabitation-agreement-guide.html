@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cohabitation Agreement Guide — The Fairbank Model (Sample)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean-deep:#0a3d52;
+    --ocean:#0b5f8a;
+    --turquoise:#0f9e94;
+    --aqua:#3fc7c1;
+    --seafoam:#a9e8d4;
+    --seafoam-pale:#e3f7f0;
+    --ink:#0e2a2f;
+    --ink-soft:#3a5459;
+    --paper:#ffffff;
+    --paper-tint:#f5fbfa;
+    --line:#d3e8e4;
+    --shadow:0 20px 50px -25px rgba(10,61,82,0.35);
+    --radius:18px;
+    --maxw:760px;
+  }
+  html[data-theme="dark"]{
+    --ocean-deep:#06222f;
+    --ocean:#0a4863;
+    --turquoise:#0d8b82;
+    --aqua:#38b3ae;
+    --seafoam:#3f7f70;
+    --seafoam-pale:#123230;
+    --ink:#eaf6f4;
+    --ink-soft:#b6d4cf;
+    --paper:#0c2226;
+    --paper-tint:#0f2b2f;
+    --line:#1e4145;
+    --shadow:0 20px 50px -25px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper-tint);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    transition:background .3s ease, color .3s ease;
+  }
+  .bg-watermark{ position:relative; }
+  .bg-watermark::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.05;
+    background-image:repeating-linear-gradient(-35deg, transparent 0 90px, currentColor 90px 91px, transparent 91px 220px);
+    color:var(--ocean);
+  }
+
+  /* ---- Top bar ---- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+    padding:14px 20px; padding-top:calc(14px + env(safe-area-inset-top));
+    background:rgba(255,255,255,0.82);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  html[data-theme="dark"] .topbar{ background:rgba(12,34,38,0.82); }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:600; font-size:15px; letter-spacing:.01em;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .brand{ color:var(--seafoam); }
+  .brand .mark{
+    width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg, var(--turquoise), var(--ocean));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;font-weight:700;font-family:'Fraunces',serif;
+    flex-shrink:0;
+  }
+  .topbar-controls{ display:flex; align-items:center; gap:8px; }
+  .fs-btn{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink-soft);
+    border-radius:999px; width:30px; height:30px; padding:0;
+    font-family:'Inter',sans-serif; font-size:12px; font-weight:700; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .fs-btn:hover{ border-color:var(--turquoise); color:var(--turquoise); }
+  .theme-toggle{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink);
+    border-radius:999px; padding:8px 16px;
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:600; cursor:pointer;
+    display:flex; align-items:center; gap:7px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .theme-toggle:hover{ border-color:var(--turquoise); }
+  .theme-toggle:focus-visible{ outline:2px solid var(--turquoise); outline-offset:2px; }
+
+  /* ---- Disclaimer band ---- */
+  .disclaimer{
+    background:linear-gradient(90deg, var(--ocean-deep), var(--ocean));
+    color:#eafffb; text-align:center; padding:12px 20px;
+    font-size:13px; font-weight:500; letter-spacing:.01em;
+  }
+  .disclaimer strong{ font-weight:700; }
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 550px at 15% -10%, rgba(169,232,212,0.55), transparent 60%),
+      radial-gradient(ellipse 800px 550px at 100% 10%, rgba(63,199,193,0.4), transparent 55%),
+      linear-gradient(180deg, var(--turquoise) 0%, var(--ocean) 100%);
+    color:#f2fdfb; padding:56px 24px 60px; text-align:center;
+  }
+  .hero .seal{
+    width:74px;height:74px; margin:0 auto 22px; border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.55);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif; font-size:20px; font-weight:600; letter-spacing:.03em;
+    background:rgba(255,255,255,0.06);
+  }
+  .hero .kicker{
+    font-family:'Source Serif 4', serif; font-style:italic; font-size:14.5px;
+    color:var(--seafoam); margin:0 0 14px;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(26px,6vw,42px);
+    line-height:1.1; margin:0 0 16px; letter-spacing:.01em;
+  }
+  .hero .parties{
+    font-family:'Fraunces', serif; font-size:clamp(15px,3.4vw,18px); font-weight:500;
+    color:#eafffb; margin:0 0 22px;
+  }
+  .hero .parties .amp{ color:var(--aqua); font-style:italic; margin:0 10px; }
+  .hero .meta{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:10px 28px;
+    font-size:12.5px; color:#cdeee8; max-width:560px; margin:0 auto;
+  }
+  .hero .meta span{ display:block; }
+  .hero .meta b{ display:block; color:#fff; font-weight:600; font-size:13px; margin-bottom:2px;}
+
+  /* ---- Container ---- */
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 22px; }
+
+  /* ---- Glance cards ---- */
+  .glance{ padding:48px 0 8px; }
+  .glance h2{ text-align:center; }
+  .cards{ display:grid; grid-template-columns:1fr; gap:14px; margin-top:26px; }
+  @media(min-width:640px){ .cards{ grid-template-columns:1fr 1fr; } }
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 22px 24px; box-shadow:var(--shadow); text-align:center;
+  }
+  .card .tag{
+    display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.04em;
+    color:var(--turquoise); background:var(--seafoam-pale);
+    padding:4px 11px; border-radius:999px; margin-bottom:12px;
+  }
+  .card h3{
+    font-family:'Fraunces', serif; font-size:18px; font-weight:600; margin:0 0 8px;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .card h3{ color:var(--seafoam); }
+  .card p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
+
+  /* ---- Section heading ---- */
+  h2.section-title{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(24px,4.5vw,30px);
+    color:var(--ocean-deep); margin:0 0 6px;
+  }
+  html[data-theme="dark"] h2.section-title{ color:var(--seafoam); }
+  .section-sub{
+    text-align:center; color:var(--ink-soft); font-family:'Source Serif 4', serif;
+    font-style:italic; font-size:15px; margin:0 0 8px;
+  }
+
+  /* ---- Articles ---- */
+  .articles{ padding:52px 0 20px; }
+  .article{ border-top:1px solid var(--line); padding:34px 0; }
+  .article:first-of-type{ border-top:2px solid var(--turquoise); }
+  .article-num{
+    font-family:'Fraunces', serif; font-style:italic; font-size:14px;
+    color:var(--turquoise); margin:0 0 6px; text-align:center;
+  }
+  .article h3{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(19px,3.6vw,23px);
+    color:var(--ink); margin:0 0 14px; text-align:center;
+  }
+  .article p{
+    font-family:'Source Serif 4', serif; font-size:16px; color:var(--ink);
+    text-align:center; margin:0 auto 14px; max-width:66ch;
+  }
+  .article p:last-child{ margin-bottom:0; }
+  .article ul{
+    text-align:left; padding-left:1.2em; margin:14px auto; max-width:60ch;
+    font-family:'Source Serif 4', serif; font-size:15.5px;
+  }
+  .article li{ margin-bottom:8px; }
+  .article .callout{
+    background:var(--seafoam-pale); border-left:3px solid var(--turquoise); border-radius:4px;
+    padding:14px 18px; font-size:14.5px; font-family:'Inter',sans-serif; color:var(--ink-soft);
+    margin-top:16px; text-align:center;
+  }
+  .article .redflag{
+    background:rgba(220,90,90,0.08); border-left:3px solid #c0524f; border-radius:4px;
+    padding:14px 18px; font-size:14.5px; font-family:'Inter',sans-serif; color:var(--ink-soft);
+    margin-top:16px; text-align:left;
+  }
+  .article .redflag b{ color:#a83f3c; }
+  html[data-theme="dark"] .article .redflag{ background:rgba(220,90,90,0.12); }
+  html[data-theme="dark"] .article .redflag b{ color:#e08a87; }
+  .article a{ color:var(--turquoise); }
+  @media(min-width:768px){
+    .card{ text-align:left; }
+    .article-num, .article h3, .article p{ text-align:left; margin-left:0; margin-right:0; }
+    .article .callout{ text-align:left; }
+  }
+
+  /* ---- Signature block ---- */
+  .signatures{ padding:20px 0 60px; }
+  .sig-box{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:36px 26px; margin-top:24px;
+  }
+  .sig-grid{ display:grid; grid-template-columns:1fr; gap:32px; margin-top:28px; }
+  @media(min-width:640px){ .sig-grid{ grid-template-columns:1fr 1fr; } }
+  .sig-line{ border-bottom:1.5px solid var(--ink-soft); height:44px; }
+  .sig-label{ margin-top:10px; font-size:13px; color:var(--ink-soft); text-align:center; }
+  .sig-label b{ display:block; color:var(--ink); font-size:14.5px; font-family:'Fraunces',serif; font-weight:600; margin-bottom:2px;}
+  @media(min-width:768px){ .sig-label{ text-align:left; } }
+
+  /* ---- Footer ---- */
+  footer{
+    background:var(--ocean-deep); color:#cdeee8; text-align:center;
+    padding:34px 22px 40px; padding-bottom:calc(40px + env(safe-area-inset-bottom));
+  }
+  footer .fm{ font-family:'Fraunces', serif; color:#fff; font-size:15px; margin:0 0 8px; }
+  footer p{ font-size:12.5px; max-width:520px; margin:0 auto; color:#a9d6cd; }
+  footer a{ color:var(--seafoam); }
+
+</style>
+<style>
+.aprus-back-to-hub{position:fixed;bottom:22px;left:22px;z-index:999;display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(20,80,90,0.22);border-radius:100px;padding:11px 20px 11px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.82rem;font-weight:600;color:#10282A;text-decoration:none;box-shadow:0 8px 26px rgba(10,60,70,0.18);transition:transform 0.15s,box-shadow 0.15s;}
+.aprus-back-to-hub:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(10,60,70,0.22);}
+.aprus-back-to-hub .arrow{font-size:0.9rem;}
+@media (max-width:640px){
+.aprus-back-to-hub{bottom:14px;left:14px;padding:0;width:40px;height:40px;justify-content:center;border-radius:50%;}
+.aprus-back-to-hub .label{display:none;}
+.aprus-back-to-hub .arrow{font-size:1rem;}
+}
+</style>
+</head>
+<body>
+<a class="aprus-back-to-hub" href="../index.html" aria-label="Back to Hub"><span class="arrow">←</span><span class="label">Back to Hub</span></a>
+
+<div class="topbar">
+  <div class="brand"><span class="mark">S&amp;V</span> Sorrel &amp; Voss LLP — Sample</div>
+  <div class="topbar-controls">
+    <button class="fs-btn" id="fsDown" aria-label="Decrease text size">A-</button>
+    <button class="fs-btn" id="fsReset" aria-label="Reset text size">A</button>
+    <button class="fs-btn" id="fsUp" aria-label="Increase text size">A+</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span id="themeIcon">🌙</span><span id="themeLabel">Dark</span>
+    </button>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Mock document.</strong> Fictional sample for illustration only — not a real or legally binding agreement.
+</div>
+
+<header class="hero">
+  <div class="seal">S&amp;V</div>
+  <p class="kicker">A model guide, prepared for illustration</p>
+  <h1>Cohabitation<br>Agreement Guide</h1>
+  <p class="parties">Partner A <span class="amp">&amp;</span> Partner B</p>
+  <div class="meta">
+    <span><b>Status</b>Reference model</span>
+    <span><b>Prepared by</b>Sorrel &amp; Voss LLP</span>
+    <span><b>Reference</b>Sample No. FB-COHAB-27</span>
+  </div>
+</header>
+
+<main class="bg-watermark">
+
+  <section class="glance wrap">
+    <h2 class="section-title" style="text-align:center;">Key terms, at a glance</h2>
+    <p class="section-sub">The four habits that protect two people building a life together without a marriage license</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Written, not assumed</span>
+        <h3>No default protections exist</h3>
+        <p>Unmarried partners have none of the automatic property, support, or inheritance rights that marriage creates. Whatever protection either partner wants has to be written down — nothing applies by default.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Separate stays separate</span>
+        <h3>Unless it's put in writing otherwise</h3>
+        <p>Each partner's pre-relationship assets, income, and property remain individually owned. Moving in together doesn't merge finances — only a joint account, joint title, or written agreement does.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Contributions get tracked</span>
+        <h3>Money or labor isn't just absorbed</h3>
+        <p>When one partner puts money, time, or credit into the other's home or business, that contribution is documented at the time — as a loan, an ownership stake, or a defined reimbursement, not an unspoken assumption.</p>
+      </div>
+      <div class="card">
+        <span class="tag">An exit plan, made in advance</span>
+        <h3>Decided before anyone's angry</h3>
+        <p>How shared property, shared debt, and shared living space get divided if the relationship ends is worked out in calm agreement — not negotiated for the first time in the middle of a breakup.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="articles wrap">
+
+    <div class="article">
+      <p class="article-num">Article I</p>
+      <h3>Purpose</h3>
+      <p>This model is offered as a plain-language guide for two people who share a home, finances, or a life together without being married. Cohabitation is common and the stakes involved — a shared home, years of pooled income, one partner's labor supporting the other's business or household — are often just as significant as marriage, but almost none of the legal protections are automatic. A written agreement is the only way to create them.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article II</p>
+      <h3>What a cohabitation agreement actually does</h3>
+      <p>A cohabitation agreement is a private contract between unmarried partners covering property, finances, and what happens if the relationship ends. It exists because the law generally does not: unmarried partners typically have no automatic right to share in each other's property, no automatic spousal support obligation, no automatic inheritance without a will, and no automatic authority to make medical decisions for one another. Whatever protections a couple wants have to be created deliberately, in writing, while the relationship is stable.</p>
+      <div class="callout">A small number of states and countries recognize "common law marriage" after a certain number of years together, but the requirements are narrow, inconsistently applied, and not something to rely on without confirming your specific jurisdiction's rule with an attorney.</div>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article III</p>
+      <h3>Separate property &amp; commingling</h3>
+      <p>Each partner's assets, income, and property owned before the relationship — and anything each acquires individually during it — remain that partner's separate property, unless the couple affirmatively commingles them through a joint account, joint title, or written agreement stating otherwise. Keeping individual accounts alongside a shared account for household expenses preserves clarity about what belongs to whom, without requiring the couple to keep finances entirely apart.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IV</p>
+      <h3>Contribution &amp; reimbursement clause</h3>
+      <p>Where one partner contributes money, labor, or credit toward property or a business that legally belongs to the other — paying down a mortgage on a home titled in one partner's name, or working unpaid in the other's business — that contribution should be documented in writing at the time it happens. The agreement should state whether the contribution is a gift, a loan to be repaid, or converts into a defined ownership percentage. Absent that documentation, the contributing partner typically has no legal claim to anything in return, regardless of how many years or how much money was involved.</p>
+      <ul>
+        <li>Contributions toward a home titled solely in one partner's name are tracked with dated records — receipts, bank transfers, a signed acknowledgment</li>
+        <li>Labor contributed to a partner's business is valued and documented, even informally, at the time it's given</li>
+        <li>The agreement states plainly whether tracked contributions are gifts, loans, or equity — silence defaults to nothing owed</li>
+      </ul>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article V</p>
+      <h3>Shared property &amp; debt</h3>
+      <p>Property purchased jointly — most commonly a shared home — is divided on separation according to a formula agreed to in advance, typically tied to each partner's documented financial contribution rather than an assumed equal split. Unmarried partners are not automatically entitled to an equal division the way divorcing spouses often are in community-property states; without a written formula, division of jointly titled property depends on who is listed on the title and deed, regardless of who actually paid for it.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VI</p>
+      <h3>What happens if it ends</h3>
+      <p>The agreement lays out, in advance, the practical mechanics of separating: a timeline for dividing shared property, a process for one partner to buy out the other's interest in a shared home, how joint accounts and joint leases are unwound, and who remains in shared housing during a transition period. Deciding this while the relationship is stable avoids the far more common alternative — negotiating it for the first time during the breakup itself, under the worst possible conditions for a fair outcome.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VII</p>
+      <h3>No automatic rights — a reminder</h3>
+      <p>Beyond property, unmarried partners typically have no automatic right to spousal support, no automatic inheritance from one another without a will naming them, and no automatic authority to make medical decisions if a partner is incapacitated. Couples who want these protections need companion documents alongside the cohabitation agreement itself.</p>
+      <div class="redflag">
+        <b>Consider alongside this agreement:</b> a will naming your partner as a beneficiary, if that's your intent · a durable power of attorney and healthcare proxy naming your partner · beneficiary designations on retirement accounts and life insurance updated to reflect your actual wishes · a review of what happens to a shared home's title if one partner dies, since jointly titled property with rights of survivorship behaves differently than property left through a will.
+      </div>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VIII</p>
+      <h3>Limitations &amp; governing law</h3>
+      <p>This model is general guidance and is not a substitute for individualized legal advice. The enforceability of cohabitation agreements, and the rights of unmarried partners generally, vary significantly by state and country — some jurisdictions enforce these agreements much like any other contract, while others impose additional requirements. A licensed family law attorney should draft any real cohabitation agreement in the couple's actual jurisdiction.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IX</p>
+      <h3>Acknowledgment</h3>
+      <p>This guide is intended for general education, inspired by a dramatized story. Any couple building a shared life without marriage should consider a real cohabitation agreement, prepared with the assistance of licensed family law counsel, while the relationship is stable rather than after a dispute has begun.</p>
+    </div>
+
+  </section>
+
+  <section class="signatures wrap">
+    <h2 class="section-title" style="text-align:center;">Signatures</h2>
+    <p class="section-sub" style="max-width:480px;margin-left:auto;margin-right:auto;">This sample is unsigned and non-binding. A real cohabitation agreement should be prepared only with licensed family law counsel.</p>
+    <div class="sig-box">
+      <div class="sig-grid">
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Partner A</b>Print name — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Partner B</b>Print name — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Witness</b>Print name &amp; date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Sorrel &amp; Voss LLP</b>Reviewing Counsel — Date</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="fm">Sorrel &amp; Voss LLP</p>
+  <p>This is a fictional sample document created for illustrative purposes, inspired by a dramatized story. It is not legal advice and creates no legal rights or obligations. Any couple building a shared life without marriage should retain a licensed family law attorney in their jurisdiction.</p>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    icon.textContent = t === 'dark' ? '☀️' : '🌙';
+    label.textContent = t === 'dark' ? 'Light' : 'Dark';
+    try { localStorage.setItem('theme', t); } catch(e) {}
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch(e) {}
+  applyTheme(saved === 'dark' ? 'dark' : 'light'); // defaults to light unless the visitor already chose dark
+
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  const sizes = [0.9, 1, 1.1, 1.22];
+  let idx = 1;
+  try {
+    const savedIdx = parseInt(localStorage.getItem('fsIdx'), 10);
+    if (!isNaN(savedIdx) && savedIdx >= 0 && savedIdx < sizes.length) idx = savedIdx;
+  } catch(e) {}
+  function applyScale(){
+    document.documentElement.style.fontSize = (sizes[idx] * 100) + '%';
+    try { localStorage.setItem('fsIdx', idx); } catch(e) {}
+  }
+  applyScale();
+  document.getElementById('fsUp').addEventListener('click', function(){ idx = Math.min(idx+1, sizes.length-1); applyScale(); });
+  document.getElementById('fsDown').addEventListener('click', function(){ idx = Math.max(idx-1, 0); applyScale(); });
+  document.getElementById('fsReset').addEventListener('click', function(){ idx = 1; applyScale(); });
+</script>
+
+</body>
+</html>
