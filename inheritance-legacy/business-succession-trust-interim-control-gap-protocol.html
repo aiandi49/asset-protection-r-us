@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Succession Trust &amp; Interim Control Gap Protocol — The Keystone Model (Sample)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean-deep:#0a3d52;
+    --ocean:#0b5f8a;
+    --turquoise:#0f9e94;
+    --aqua:#3fc7c1;
+    --seafoam:#a9e8d4;
+    --seafoam-pale:#e3f7f0;
+    --ink:#0e2a2f;
+    --ink-soft:#3a5459;
+    --paper:#ffffff;
+    --paper-tint:#f5fbfa;
+    --line:#d3e8e4;
+    --shadow:0 20px 50px -25px rgba(10,61,82,0.35);
+    --radius:18px;
+    --maxw:760px;
+  }
+  html[data-theme="dark"]{
+    --ocean-deep:#06222f;
+    --ocean:#0a4863;
+    --turquoise:#0d8b82;
+    --aqua:#38b3ae;
+    --seafoam:#3f7f70;
+    --seafoam-pale:#123230;
+    --ink:#eaf6f4;
+    --ink-soft:#b6d4cf;
+    --paper:#0c2226;
+    --paper-tint:#0f2b2f;
+    --line:#1e4145;
+    --shadow:0 20px 50px -25px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper-tint);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    transition:background .3s ease, color .3s ease;
+  }
+  .bg-watermark{ position:relative; }
+  .bg-watermark::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.05;
+    background-image:repeating-linear-gradient(-35deg, transparent 0 90px, currentColor 90px 91px, transparent 91px 220px);
+    color:var(--ocean);
+  }
+
+  /* ---- Top bar ---- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+    padding:14px 20px; padding-top:calc(14px + env(safe-area-inset-top));
+    background:rgba(255,255,255,0.82);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  html[data-theme="dark"] .topbar{ background:rgba(12,34,38,0.82); }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:600; font-size:15px; letter-spacing:.01em;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .brand{ color:var(--seafoam); }
+  .brand .mark{
+    width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg, var(--turquoise), var(--ocean));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;font-weight:700;font-family:'Fraunces',serif;
+    flex-shrink:0;
+  }
+  .topbar-controls{ display:flex; align-items:center; gap:8px; }
+  .fs-btn{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink-soft);
+    border-radius:999px; width:30px; height:30px; padding:0;
+    font-family:'Inter',sans-serif; font-size:12px; font-weight:700; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .fs-btn:hover{ border-color:var(--turquoise); color:var(--turquoise); }
+  .theme-toggle{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink);
+    border-radius:999px; padding:8px 16px;
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:600; cursor:pointer;
+    display:flex; align-items:center; gap:7px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .theme-toggle:hover{ border-color:var(--turquoise); }
+  .theme-toggle:focus-visible{ outline:2px solid var(--turquoise); outline-offset:2px; }
+
+  /* ---- Disclaimer band ---- */
+  .disclaimer{
+    background:linear-gradient(90deg, var(--ocean-deep), var(--ocean));
+    color:#eafffb; text-align:center; padding:12px 20px;
+    font-size:13px; font-weight:500; letter-spacing:.01em;
+  }
+  .disclaimer strong{ font-weight:700; }
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 550px at 15% -10%, rgba(169,232,212,0.55), transparent 60%),
+      radial-gradient(ellipse 800px 550px at 100% 10%, rgba(63,199,193,0.4), transparent 55%),
+      linear-gradient(180deg, var(--turquoise) 0%, var(--ocean) 100%);
+    color:#f2fdfb; padding:56px 24px 60px; text-align:center;
+  }
+  .hero .seal{
+    width:74px;height:74px; margin:0 auto 22px; border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.55);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif; font-size:20px; font-weight:600; letter-spacing:.03em;
+    background:rgba(255,255,255,0.06);
+  }
+  .hero .kicker{
+    font-family:'Source Serif 4', serif; font-style:italic; font-size:14.5px;
+    color:#cdeee8; margin:0 0 14px;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(26px,6vw,42px);
+    line-height:1.1; margin:0 0 16px; letter-spacing:.01em;
+  }
+  .hero .parties{
+    font-family:'Fraunces', serif; font-size:clamp(15px,3.4vw,18px); font-weight:500;
+    color:#eafffb; margin:0 0 22px;
+  }
+  .hero .parties .amp{ color:var(--aqua); font-style:italic; margin:0 10px; }
+  .hero .meta{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:10px 28px;
+    font-size:12.5px; color:#cdeee8; max-width:560px; margin:0 auto;
+  }
+  .hero .meta span{ display:block; }
+  .hero .meta b{ display:block; color:#fff; font-weight:600; font-size:13px; margin-bottom:2px;}
+
+  /* ---- Container ---- */
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 22px; }
+
+  /* ---- Glance cards ---- */
+  .glance{ padding:48px 0 8px; }
+  .glance h2{ text-align:center; }
+  .cards{ display:grid; grid-template-columns:1fr; gap:14px; margin-top:26px; }
+  @media(min-width:640px){ .cards{ grid-template-columns:1fr 1fr; } }
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 22px 24px; box-shadow:var(--shadow); text-align:center;
+  }
+  .card .tag{
+    display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.04em;
+    color:var(--turquoise); background:var(--seafoam-pale);
+    padding:4px 11px; border-radius:999px; margin-bottom:12px;
+  }
+  .card h3{
+    font-family:'Fraunces', serif; font-size:18px; font-weight:600; margin:0 0 8px;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .card h3{ color:var(--seafoam); }
+  .card p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
+
+  /* ---- Section heading ---- */
+  h2.section-title{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(24px,4.5vw,30px);
+    color:var(--ocean-deep); margin:0 0 6px;
+  }
+  html[data-theme="dark"] h2.section-title{ color:var(--seafoam); }
+  .section-sub{
+    text-align:center; color:var(--ink-soft); font-family:'Source Serif 4', serif;
+    font-style:italic; font-size:15px; margin:0 0 8px;
+  }
+
+  /* ---- Articles ---- */
+  .articles{ padding:52px 0 20px; }
+  .article{ border-top:1px solid var(--line); padding:34px 0; }
+  .article:first-of-type{ border-top:2px solid var(--turquoise); }
+  .article-num{
+    font-family:'Fraunces', serif; font-style:italic; font-size:14px;
+    color:var(--turquoise); margin:0 0 6px; text-align:center;
+  }
+  .article h3{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(19px,3.6vw,23px);
+    color:var(--ink); margin:0 0 14px; text-align:center;
+  }
+  .article p{
+    font-family:'Source Serif 4', serif; font-size:16px; color:var(--ink);
+    text-align:center; margin:0 auto 14px; max-width:66ch;
+  }
+  .article p:last-child{ margin-bottom:0; }
+  .article ul{
+    text-align:left; padding-left:1.2em; margin:14px auto; max-width:60ch;
+    font-family:'Source Serif 4', serif; font-size:15.5px;
+  }
+  .article li{ margin-bottom:8px; }
+  .article .callout{
+    background:var(--seafoam-pale); border-left:3px solid var(--turquoise); border-radius:4px;
+    padding:14px 18px; font-size:14.5px; font-family:'Inter',sans-serif; color:var(--ink-soft);
+    margin-top:16px; text-align:center;
+  }
+  .article .redflag{
+    background:rgba(220,90,90,0.08); border-left:3px solid #c0524f; border-radius:4px;
+    padding:14px 18px; font-size:14.5px; font-family:'Inter',sans-serif; color:var(--ink-soft);
+    margin-top:16px; text-align:left;
+  }
+  .article .redflag b{ color:#a83f3c; }
+  html[data-theme="dark"] .article .redflag{ background:rgba(220,90,90,0.12); }
+  html[data-theme="dark"] .article .redflag b{ color:#e08a87; }
+  .article a{ color:var(--turquoise); }
+  @media(min-width:768px){
+    .card{ text-align:left; }
+    .article-num, .article h3, .article p{ text-align:left; margin-left:0; margin-right:0; }
+    .article .callout{ text-align:left; }
+  }
+
+  /* ---- Signature block ---- */
+  .signatures{ padding:20px 0 60px; }
+  .sig-box{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:36px 26px; margin-top:24px;
+  }
+  .sig-grid{ display:grid; grid-template-columns:1fr; gap:32px; margin-top:28px; }
+  @media(min-width:640px){ .sig-grid{ grid-template-columns:1fr 1fr; } }
+  .sig-line{ border-bottom:1.5px solid var(--ink-soft); height:44px; }
+  .sig-label{ margin-top:10px; font-size:13px; color:var(--ink-soft); text-align:center; }
+  .sig-label b{ display:block; color:var(--ink); font-size:14.5px; font-family:'Fraunces',serif; font-weight:600; margin-bottom:2px;}
+  @media(min-width:768px){ .sig-label{ text-align:left; } }
+
+  /* ---- Footer ---- */
+  footer{
+    background:var(--ocean-deep); color:#cdeee8; text-align:center;
+    padding:34px 22px 40px; padding-bottom:calc(40px + env(safe-area-inset-bottom));
+  }
+  footer .fm{ font-family:'Fraunces', serif; color:#fff; font-size:15px; margin:0 0 8px; }
+  footer p{ font-size:12.5px; max-width:520px; margin:0 auto; color:#a9d6cd; }
+  footer a{ color:var(--seafoam); }
+
+</style>
+<style>
+.aprus-back-to-hub{position:fixed;bottom:22px;left:22px;z-index:999;display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(20,80,90,0.22);border-radius:100px;padding:11px 20px 11px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.82rem;font-weight:600;color:#10282A;text-decoration:none;box-shadow:0 8px 26px rgba(10,60,70,0.18);transition:transform 0.15s,box-shadow 0.15s;}
+.aprus-back-to-hub:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(10,60,70,0.22);}
+.aprus-back-to-hub .arrow{font-size:0.9rem;}
+@media (max-width:640px){
+.aprus-back-to-hub{bottom:14px;left:14px;padding:0;width:40px;height:40px;justify-content:center;border-radius:50%;}
+.aprus-back-to-hub .label{display:none;}
+.aprus-back-to-hub .arrow{font-size:1rem;}
+}
+</style>
+</head>
+<body>
+<a class="aprus-back-to-hub" href="../index.html" aria-label="Back to Hub"><span class="arrow">←</span><span class="label">Back to Hub</span></a>
+
+<div class="topbar">
+  <div class="brand"><span class="mark">P&amp;A</span> Prescott &amp; Ames LLP — Sample</div>
+  <div class="topbar-controls">
+    <button class="fs-btn" id="fsDown" aria-label="Decrease text size">A-</button>
+    <button class="fs-btn" id="fsReset" aria-label="Reset text size">A</button>
+    <button class="fs-btn" id="fsUp" aria-label="Increase text size">A+</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span id="themeIcon">🌙</span><span id="themeLabel">Dark</span>
+    </button>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Mock document.</strong> Fictional sample for illustration only — not a real or legally binding agreement.
+</div>
+
+<header class="hero">
+  <div class="seal">P&amp;A</div>
+  <p class="kicker">A model guide, prepared for illustration</p>
+  <h1>Business Succession Trust &amp;<br>Interim Control Gap Protocol</h1>
+  <p class="parties">Trust Grantor <span class="amp">&amp;</span> Named Trustee</p>
+  <div class="meta">
+    <span><b>Status</b>Reference model</span>
+    <span><b>Prepared by</b>Prescott &amp; Ames LLP</span>
+    <span><b>Reference</b>Sample No. KS-SUC-52</span>
+  </div>
+</header>
+
+<main class="bg-watermark">
+
+  <section class="glance wrap">
+    <h2 class="section-title" style="text-align:center;">Key terms, at a glance</h2>
+    <p class="section-sub">The four habits that kept a founder's company from being seized in the hours after his death</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Outside the will</span>
+        <h3>Controlling shares live in a trust, not the estate</h3>
+        <p>A trust holding voting control is a separate legal structure from the will — it isn't frozen, contested, or delayed by probate, and it keeps operating on its own terms from the moment it was created.</p>
+      </div>
+      <div class="card">
+        <span class="tag">A deadline, not a formality</span>
+        <h3>A defined window to register standing</h3>
+        <p>The named trustee has a strict, short deadline — commonly 72 to 96 hours from when the estate opens — to formally register and present standing to the board. Missing it opens a real door.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Know the gap exists</span>
+        <h3>Plan around the vulnerability in advance</h3>
+        <p>Anyone positioned to inherit control of a closely-held company should know this exact window exists before the day they're actually in it — not learn about it while the clock is already running.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Down to the minute</span>
+        <h3>Timestamps decide who prevails</h3>
+        <p>When two parties compete for control during succession, the sequence of official filings and court orders — not who acted first informally, not who has more support in the room — is what actually resolves it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="articles wrap">
+
+    <div class="article">
+      <p class="article-num">Article I</p>
+      <h3>Purpose</h3>
+      <p>This model addresses a specific, often-overlooked vulnerability in business succession planning: the gap between a founder's death and the formal, board-recognized establishment of whoever inherits controlling ownership. That gap can be measured in hours, and in a closely-held company, hours are enough time for someone already positioned inside the company to attempt to fill it.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article II</p>
+      <h3>Why controlling shares belong in a trust, not the will</h3>
+      <p>A will becomes part of the public probate estate — subject to court filing timelines, potential contests, and delay that can run into months even in uncomplicated cases. A properly funded trust holding a company's controlling shares operates independently of that process, on its own governing terms, without needing probate court approval to keep functioning. Structured this way, control can transfer immediately upon death rather than waiting for an estate to formally settle.</p>
+      <div class="callout">In the Keystone case, the trust was never named in the will at all — because it was never part of the estate. It existed alongside it, on its own terms, from the day it was funded years earlier.</div>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article III</p>
+      <h3>The defined standing window</h3>
+      <p>A well-drafted succession trust includes a governing clause requiring the named trustee to formally register with the appropriate authority and present documentation to the company's board within a fixed period after the estate opens. This deadline exists deliberately, not as an oversight to fix later: it forces decisive action from the named successor and prevents a passive heir, however legitimately named, from leaving a dangerous vacuum at the exact moment the company can least afford one.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IV</p>
+      <h3>The interim steward risk</h3>
+      <p>If the standing window closes without the named trustee completing registration, most governing structures allow an interim steward to be appointed to administer the shares until standing is established. This exists as a safety valve for genuine incapacity or delay — not as an invitation. But anyone aware that a controlling trust exists at all, even without knowing who was actually named trustee, can attempt to file for interim status the moment the window opens. The only real defense is completing registration as early and as fast as legally possible, not waiting for a comfortable moment that may not come.</p>
+      <div class="redflag">
+        <b>Watch for:</b> anyone moving to fill a "vacancy" in company control within hours of a founder's death, before a will has even been formally read · a petition for interim or temporary authority filed suspiciously close to the moment an estate opens · confidence from a party about controlling a trust's votes without ever having confirmed who the actual named trustee is.
+      </div>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article V</p>
+      <h3>What to do the moment you learn you're the trustee</h3>
+      <p>Contact the attorney who drafted the trust immediately, before doing anything else. Submit registration filings the same day if at all possible, and ask explicitly whether any expedited or same-day processing option exists. Notify the company's board formally and promptly — even before full confirmation clears — so the board has the information on record regardless of how quickly the paperwork itself moves. Document the exact time of every filing, call, and submission along the way.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VI</p>
+      <h3>Timestamps as the deciding factor</h3>
+      <p>Courts and boards resolve competing claims to control during a succession dispute based on official timestamps — the minute a filing was received, the minute a court order was signed, the minute a board resolution passed — not on who arrived first informally or who had more allies in the room that day. A trustee registration confirmed before a competing provisional order is signed generally supersedes that order once formally established. Keep meticulous, contemporaneous records of exactly when each step happened and who can verify it.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VII</p>
+      <h3>Choosing the right people before you ever need them</h3>
+      <p>A succession plan is only as fast as the people who have to execute it under pressure. A drafting attorney who moves quickly and is genuinely reachable in a crisis, and at least one trusted insider — a CFO or comparable executive — willing to act on legitimate concerns rather than defer to whoever currently holds operational power, are often what actually makes the difference between a plan that works and one that exists only on paper.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VIII</p>
+      <h3>Limitations &amp; governing law</h3>
+      <p>This model is general guidance and is not a substitute for individualized legal advice. Trust law, succession statutes, and the enforceability of a defined standing window vary significantly by state. A licensed trusts and estates attorney should structure any real succession trust of this kind, well before it is ever needed.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IX</p>
+      <h3>Acknowledgment</h3>
+      <p>This guide is intended for general education, inspired by a dramatized story. Any founder planning a real business succession, or any named trustee navigating a real succession dispute, should seek the assistance of licensed trusts and estates counsel immediately.</p>
+    </div>
+
+  </section>
+
+  <section class="signatures wrap">
+    <h2 class="section-title" style="text-align:center;">Signatures</h2>
+    <p class="section-sub" style="max-width:480px;margin-left:auto;margin-right:auto;">This sample is unsigned and non-binding. A real succession trust of this kind should be prepared only with licensed trusts and estates counsel.</p>
+    <div class="sig-box">
+      <div class="sig-grid">
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Trust Grantor</b>Print name — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Named Trustee</b>Print name — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Company Board Representative</b>Print name &amp; date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Prescott &amp; Ames LLP</b>Reviewing Counsel — Date</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="fm">Prescott &amp; Ames LLP</p>
+  <p>This is a fictional sample document created for illustrative purposes, inspired by a dramatized story. It is not legal advice and creates no legal rights or obligations. Any founder or named trustee facing a real succession situation should retain licensed trusts and estates counsel in their jurisdiction.</p>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    icon.textContent = t === 'dark' ? '☀️' : '🌙';
+    label.textContent = t === 'dark' ? 'Light' : 'Dark';
+    try { localStorage.setItem('theme', t); } catch(e) {}
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch(e) {}
+  applyTheme(saved === 'dark' ? 'dark' : 'light'); // defaults to light unless the visitor already chose dark
+
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  const sizes = [0.9, 1, 1.1, 1.22];
+  let idx = 1;
+  try {
+    const savedIdx = parseInt(localStorage.getItem('fsIdx'), 10);
+    if (!isNaN(savedIdx) && savedIdx >= 0 && savedIdx < sizes.length) idx = savedIdx;
+  } catch(e) {}
+  function applyScale(){
+    document.documentElement.style.fontSize = (sizes[idx] * 100) + '%';
+    try { localStorage.setItem('fsIdx', idx); } catch(e) {}
+  }
+  applyScale();
+  document.getElementById('fsUp').addEventListener('click', function(){ idx = Math.min(idx+1, sizes.length-1); applyScale(); });
+  document.getElementById('fsDown').addEventListener('click', function(){ idx = Math.max(idx-1, 0); applyScale(); });
+  document.getElementById('fsReset').addEventListener('click', function(){ idx = 1; applyScale(); });
+</script>
+
+</body>
+</html>
