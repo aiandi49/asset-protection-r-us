@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweat Equity &amp; Asset Tracing in Divorce — The Bracken Hill Model (Sample)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean-deep:#0a3d52;
+    --ocean:#0b5f8a;
+    --turquoise:#0f9e94;
+    --aqua:#3fc7c1;
+    --seafoam:#a9e8d4;
+    --seafoam-pale:#e3f7f0;
+    --ink:#0e2a2f;
+    --ink-soft:#3a5459;
+    --paper:#ffffff;
+    --paper-tint:#f5fbfa;
+    --line:#d3e8e4;
+    --shadow:0 20px 50px -25px rgba(10,61,82,0.35);
+    --radius:18px;
+    --maxw:760px;
+  }
+  html[data-theme="dark"]{
+    --ocean-deep:#06222f;
+    --ocean:#0a4863;
+    --turquoise:#0d8b82;
+    --aqua:#38b3ae;
+    --seafoam:#3f7f70;
+    --seafoam-pale:#123230;
+    --ink:#eaf6f4;
+    --ink-soft:#b6d4cf;
+    --paper:#0c2226;
+    --paper-tint:#0f2b2f;
+    --line:#1e4145;
+    --shadow:0 20px 50px -25px rgba(0,0,0,0.6);
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--paper-tint);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    transition:background .3s ease, color .3s ease;
+  }
+  .bg-watermark{ position:relative; }
+  .bg-watermark::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.05;
+    background-image:repeating-linear-gradient(-35deg, transparent 0 90px, currentColor 90px 91px, transparent 91px 220px);
+    color:var(--ocean);
+  }
+
+  /* ---- Top bar ---- */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; flex-wrap:wrap;
+    padding:14px 20px; padding-top:calc(14px + env(safe-area-inset-top));
+    background:rgba(255,255,255,0.82);
+    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  html[data-theme="dark"] .topbar{ background:rgba(12,34,38,0.82); }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif; font-weight:600; font-size:15px; letter-spacing:.01em;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .brand{ color:var(--seafoam); }
+  .brand .mark{
+    width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg, var(--turquoise), var(--ocean));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:11px;font-weight:700;font-family:'Fraunces',serif;
+    flex-shrink:0;
+  }
+  .topbar-controls{ display:flex; align-items:center; gap:8px; }
+  .fs-btn{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink-soft);
+    border-radius:999px; width:30px; height:30px; padding:0;
+    font-family:'Inter',sans-serif; font-size:12px; font-weight:700; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .fs-btn:hover{ border-color:var(--turquoise); color:var(--turquoise); }
+  .theme-toggle{
+    border:1px solid var(--line); background:var(--paper); color:var(--ink);
+    border-radius:999px; padding:8px 16px;
+    font-family:'Inter',sans-serif; font-size:13px; font-weight:600; cursor:pointer;
+    display:flex; align-items:center; gap:7px;
+    transition:background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .theme-toggle:hover{ border-color:var(--turquoise); }
+  .theme-toggle:focus-visible{ outline:2px solid var(--turquoise); outline-offset:2px; }
+
+  /* ---- Disclaimer band ---- */
+  .disclaimer{
+    background:linear-gradient(90deg, var(--ocean-deep), var(--ocean));
+    color:#eafffb; text-align:center; padding:12px 20px;
+    font-size:13px; font-weight:500; letter-spacing:.01em;
+  }
+  .disclaimer strong{ font-weight:700; }
+
+  /* ---- Hero ---- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 550px at 15% -10%, rgba(169,232,212,0.55), transparent 60%),
+      radial-gradient(ellipse 800px 550px at 100% 10%, rgba(63,199,193,0.4), transparent 55%),
+      linear-gradient(180deg, var(--turquoise) 0%, var(--ocean) 100%);
+    color:#f2fdfb; padding:56px 24px 60px; text-align:center;
+  }
+  .hero .seal{
+    width:74px;height:74px; margin:0 auto 22px; border-radius:50%;
+    border:1.5px solid rgba(255,255,255,0.55);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Fraunces',serif; font-size:20px; font-weight:600; letter-spacing:.03em;
+    background:rgba(255,255,255,0.06);
+  }
+  .hero .kicker{
+    font-family:'Source Serif 4', serif; font-style:italic; font-size:14.5px;
+    color:#cdeee8; margin:0 0 14px;
+  }
+  .hero h1{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(24px,5.6vw,40px);
+    line-height:1.1; margin:0 0 16px; letter-spacing:.01em;
+  }
+  .hero .parties{
+    font-family:'Fraunces', serif; font-size:clamp(15px,3.4vw,18px); font-weight:500;
+    color:#eafffb; margin:0 0 22px;
+  }
+  .hero .parties .amp{ color:var(--aqua); font-style:italic; margin:0 10px; }
+  .hero .meta{
+    display:flex; justify-content:center; flex-wrap:wrap; gap:10px 28px;
+    font-size:12.5px; color:#cdeee8; max-width:560px; margin:0 auto;
+  }
+  .hero .meta span{ display:block; }
+  .hero .meta b{ display:block; color:#fff; font-weight:600; font-size:13px; margin-bottom:2px;}
+
+  /* ---- Container ---- */
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 22px; }
+
+  /* ---- Glance cards ---- */
+  .glance{ padding:48px 0 8px; }
+  .glance h2{ text-align:center; }
+  .cards{ display:grid; grid-template-columns:1fr; gap:14px; margin-top:26px; }
+  @media(min-width:640px){ .cards{ grid-template-columns:1fr 1fr; } }
+  .card{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 22px 24px; box-shadow:var(--shadow); text-align:center;
+  }
+  .card .tag{
+    display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.04em;
+    color:var(--turquoise); background:var(--seafoam-pale);
+    padding:4px 11px; border-radius:999px; margin-bottom:12px;
+  }
+  .card h3{
+    font-family:'Fraunces', serif; font-size:18px; font-weight:600; margin:0 0 8px;
+    color:var(--ocean-deep);
+  }
+  html[data-theme="dark"] .card h3{ color:var(--seafoam); }
+  .card p{ margin:0; font-size:14.5px; color:var(--ink-soft); }
+
+  /* ---- Section heading ---- */
+  h2.section-title{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(24px,4.5vw,30px);
+    color:var(--ocean-deep); margin:0 0 6px;
+  }
+  html[data-theme="dark"] h2.section-title{ color:var(--seafoam); }
+  .section-sub{
+    text-align:center; color:var(--ink-soft); font-family:'Source Serif 4', serif;
+    font-style:italic; font-size:15px; margin:0 0 8px;
+  }
+
+  /* ---- Articles ---- */
+  .articles{ padding:52px 0 20px; }
+  .article{ border-top:1px solid var(--line); padding:34px 0; }
+  .article:first-of-type{ border-top:2px solid var(--turquoise); }
+  .article-num{
+    font-family:'Fraunces', serif; font-style:italic; font-size:14px;
+    color:var(--turquoise); margin:0 0 6px; text-align:center;
+  }
+  .article h3{
+    font-family:'Fraunces', serif; font-weight:600; font-size:clamp(19px,3.6vw,23px);
+    color:var(--ink); margin:0 0 14px; text-align:center;
+  }
+  .article p{
+    font-family:'Source Serif 4', serif; font-size:16px; color:var(--ink);
+    text-align:center; margin:0 auto 14px; max-width:66ch;
+  }
+  .article p:last-child{ margin-bottom:0; }
+  .article ul{
+    text-align:left; padding-left:1.2em; margin:14px auto; max-width:60ch;
+    font-family:'Source Serif 4', serif; font-size:15.5px;
+  }
+  .article li{ margin-bottom:8px; }
+  .article .callout{
+    background:var(--seafoam-pale); border-left:3px solid var(--turquoise); border-radius:4px;
+    padding:14px 18px; font-size:14.5px; font-family:'Inter',sans-serif; color:var(--ink-soft);
+    margin-top:16px; text-align:center;
+  }
+  .article .redflag{
+    background:rgba(220,90,90,0.08); border-left:3px solid #c0524f; border-radius:4px;
+    padding:14px 18px; font-size:14.5px; font-family:'Inter',sans-serif; color:var(--ink-soft);
+    margin-top:16px; text-align:left;
+  }
+  .article .redflag b{ color:#a83f3c; }
+  html[data-theme="dark"] .article .redflag{ background:rgba(220,90,90,0.12); }
+  html[data-theme="dark"] .article .redflag b{ color:#e08a87; }
+  .article a{ color:var(--turquoise); }
+  @media(min-width:768px){
+    .card{ text-align:left; }
+    .article-num, .article h3, .article p{ text-align:left; margin-left:0; margin-right:0; }
+    .article .callout{ text-align:left; }
+  }
+
+  /* ---- Signature block ---- */
+  .signatures{ padding:20px 0 60px; }
+  .sig-box{
+    background:var(--paper); border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:var(--shadow); padding:36px 26px; margin-top:24px;
+  }
+  .sig-grid{ display:grid; grid-template-columns:1fr; gap:32px; margin-top:28px; }
+  @media(min-width:640px){ .sig-grid{ grid-template-columns:1fr 1fr; } }
+  .sig-line{ border-bottom:1.5px solid var(--ink-soft); height:44px; }
+  .sig-label{ margin-top:10px; font-size:13px; color:var(--ink-soft); text-align:center; }
+  .sig-label b{ display:block; color:var(--ink); font-size:14.5px; font-family:'Fraunces',serif; font-weight:600; margin-bottom:2px;}
+  @media(min-width:768px){ .sig-label{ text-align:left; } }
+
+  /* ---- Footer ---- */
+  footer{
+    background:var(--ocean-deep); color:#cdeee8; text-align:center;
+    padding:34px 22px 40px; padding-bottom:calc(40px + env(safe-area-inset-bottom));
+  }
+  footer .fm{ font-family:'Fraunces', serif; color:#fff; font-size:15px; margin:0 0 8px; }
+  footer p{ font-size:12.5px; max-width:520px; margin:0 auto; color:#a9d6cd; }
+  footer a{ color:var(--seafoam); }
+
+</style>
+<style>
+.aprus-back-to-hub{position:fixed;bottom:22px;left:22px;z-index:999;display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(20,80,90,0.22);border-radius:100px;padding:11px 20px 11px 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:0.82rem;font-weight:600;color:#10282A;text-decoration:none;box-shadow:0 8px 26px rgba(10,60,70,0.18);transition:transform 0.15s,box-shadow 0.15s;}
+.aprus-back-to-hub:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(10,60,70,0.22);}
+.aprus-back-to-hub .arrow{font-size:0.9rem;}
+@media (max-width:640px){
+.aprus-back-to-hub{bottom:14px;left:14px;padding:0;width:40px;height:40px;justify-content:center;border-radius:50%;}
+.aprus-back-to-hub .label{display:none;}
+.aprus-back-to-hub .arrow{font-size:1rem;}
+}
+</style>
+</head>
+<body>
+<a class="aprus-back-to-hub" href="../index.html" aria-label="Back to Hub"><span class="arrow">←</span><span class="label">Back to Hub</span></a>
+
+<div class="topbar">
+  <div class="brand"><span class="mark">H&amp;R</span> Halvorsen &amp; Reyes LLP — Sample</div>
+  <div class="topbar-controls">
+    <button class="fs-btn" id="fsDown" aria-label="Decrease text size">A-</button>
+    <button class="fs-btn" id="fsReset" aria-label="Reset text size">A</button>
+    <button class="fs-btn" id="fsUp" aria-label="Increase text size">A+</button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span id="themeIcon">🌙</span><span id="themeLabel">Dark</span>
+    </button>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>Mock document.</strong> Fictional sample for illustration only — not a real or legally binding agreement.
+</div>
+
+<header class="hero">
+  <div class="seal">H&amp;R</div>
+  <p class="kicker">A model guide, prepared for illustration</p>
+  <h1>Sweat Equity &amp;<br>Asset Tracing in Divorce</h1>
+  <p class="parties">Spouse A <span class="amp">&amp;</span> Spouse B</p>
+  <div class="meta">
+    <span><b>Status</b>Reference model</span>
+    <span><b>Prepared by</b>Halvorsen &amp; Reyes LLP</span>
+    <span><b>Reference</b>Sample No. BH-TRACE-71</span>
+  </div>
+</header>
+
+<main class="bg-watermark">
+
+  <section class="glance wrap">
+    <h2 class="section-title" style="text-align:center;">Key terms, at a glance</h2>
+    <p class="section-sub">The four habits that kept nine years of uncredited work from being erased in one sentence</p>
+    <div class="cards">
+      <div class="card">
+        <span class="tag">Real, even unwritten</span>
+        <h3>Uncompensated contribution isn't undeserved</h3>
+        <p>Years of unpaid expertise, deal-saving catches, and risk capital put into a spouse's business can be recognized in equitable distribution — but only if it can actually be shown, not just remembered.</p>
+      </div>
+      <div class="card">
+        <span class="tag">History doesn't reset</span>
+        <h3>Money keeps its origin, not its address</h3>
+        <p>Funds that trace back to marital-era assets, effort, or credit generally keep their marital character even after being moved through a newly formed LLC.</p>
+      </div>
+      <div class="card">
+        <span class="tag">The calendar talks</span>
+        <h3>Timing before a filing is not neutral</h3>
+        <p>An entity restructured, or a purpose quietly rewritten, in the weeks before a divorce filing invites exactly the scrutiny it was built to avoid.</p>
+      </div>
+      <div class="card">
+        <span class="tag">Read the number</span>
+        <h3>A big offer to stop looking is a data point</h3>
+        <p>A settlement sized specifically to end a financial review, rather than to reflect an honest valuation, tells you something about how confident the person offering it actually is.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="articles wrap">
+
+    <div class="article">
+      <p class="article-num">Article I</p>
+      <h3>Purpose</h3>
+      <p>This model addresses two connected problems that surface constantly in long marriages built around one spouse's formally titled business: how uncompensated, undocumented labor and capital contributed to that business gets recognized — or erased — at divorce, and how money that originated during the marriage can be moved through new entities in an attempt to recharacterize it as separate property immediately before a filing.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article II</p>
+      <h3>Documenting an uncompensated contribution as it happens</h3>
+      <p>The single most important habit, and the hardest one to start after the fact, is keeping a contemporaneous record of substantive contributions to a spouse's business — not for suspicion, but because memory alone rarely survives a deposition years later. A dated note describing a problem found and fixed, a saved draft of a financial model with a timestamp, an email or text referencing the work as it happened, all carry weight that recollection does not.</p>
+      <ul>
+        <li>Save dated drafts of any financial models, projections, or structuring work, even informal ones</li>
+        <li>Keep a simple, ongoing log of significant contributions — a caught contract clause, a restructured loan package, a weekend spent rebuilding a submission — noted at the time, not reconstructed later</li>
+        <li>Retain records of any personal capital contributed to a spouse's business, including the source of that capital and the date it was contributed</li>
+      </ul>
+      <div class="callout">In the Bracken Hill case, a single sentence — "he helped me with some spreadsheets" — nearly erased nine years of deal-saving work in a deposition. What prevented it from succeeding was a documentary record that existed independently of anyone's memory or goodwill.</div>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article III</p>
+      <h3>What forensic tracing actually does</h3>
+      <p>A forensic accountant engaged in a high-asset divorce traces the origin of disputed funds through a full chain of transactions — following money through however many intermediary entities it passes, comparing entity formation and restructuring dates against the timeline of the relationship, and reconstructing where value actually originated regardless of which name currently sits on the account. This is methodical, often slow work, and it is what actually resolves disputes that would otherwise come down to competing verbal accounts.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IV</p>
+      <h3>Why moving money through a new entity doesn't erase its character</h3>
+      <p>Property generally keeps its marital or separate character based on how and when it was actually acquired, not based on which entity happens to hold title to it today. A newly formed LLC receiving the proceeds from the sale of marital-era assets does not automatically convert those proceeds into that entity owner's separate property, however cleanly the new entity's paperwork is written. Courts and forensic accountants look through the entity to the underlying origin of the funds.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article V</p>
+      <h3>Timing as a red flag</h3>
+      <p>An entity's formation, an ownership restructuring, or a rewritten statement of purpose occurring in the weeks or months immediately before a divorce filing is a fact pattern worth documenting precisely, because the timing itself becomes part of the evidence. Note exact dates of any structural changes to shared or business assets alongside the timeline of the relationship's breakdown — the proximity, once laid out plainly, often speaks for itself.</p>
+      <div class="redflag">
+        <b>Watch for:</b> a new entity formed, or an existing one restructured, in the months before a major relationship change · ownership documents amended to newly describe an asset as one spouse's separate property · a sudden reluctance to discuss "a difficult negotiation" that coincides with unexplained absences or distraction.
+      </div>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VI</p>
+      <h3>Reading a settlement offer's size against what it's asking for</h3>
+      <p>A settlement offer that is unusually generous specifically in exchange for ending a financial review or discovery request — rather than reflecting a reasoned valuation of the actual disputed assets — is itself informative. An offer sized to make scrutiny stop, rather than to fairly value what is being discussed, is not a gesture of goodwill; it is a data point about how the offering party assesses their own position if that scrutiny continues.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VII</p>
+      <h3>What mediation can resolve that continued litigation often can't</h3>
+      <p>Once a strong evidentiary record exists — a documented contribution history, a completed forensic tracing report — a skilled mediator familiar with that full record can often reach a fair division reflecting the actual facts faster and at lower cost than continuing to litigate every disputed dollar. The value of mediation depends entirely on the strength of the record brought into it; mediating before the tracing work is complete usually just relocates the same unresolved dispute into a different room.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article VIII</p>
+      <h3>Limitations &amp; governing law</h3>
+      <p>This model is general guidance and is not a substitute for individualized legal advice. The characterization of marital versus separate property, the treatment of commingled or transmuted assets, and the recognition of uncompensated contributions to a spouse's business all vary significantly by state. A licensed family law attorney and a qualified forensic accountant should be engaged directly in any real dispute of this kind.</p>
+    </div>
+
+    <div class="article">
+      <p class="article-num">Article IX</p>
+      <h3>Acknowledgment</h3>
+      <p>This guide is intended for general education, inspired by a dramatized story. Anyone navigating a real divorce involving a closely-held business, undocumented contributions, or suspected pre-divorce asset restructuring should retain licensed family law counsel and a qualified forensic accountant.</p>
+    </div>
+
+  </section>
+
+  <section class="signatures wrap">
+    <h2 class="section-title" style="text-align:center;">Signatures</h2>
+    <p class="section-sub" style="max-width:480px;margin-left:auto;margin-right:auto;">This sample is unsigned and non-binding. A real dispute of this kind should be handled only with licensed family law counsel and a qualified forensic accountant.</p>
+    <div class="sig-box">
+      <div class="sig-grid">
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Spouse A</b>Print name — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Spouse B</b>Print name — Date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Forensic Accountant</b>Print name &amp; date</div>
+        </div>
+        <div>
+          <div class="sig-line"></div>
+          <div class="sig-label"><b>Halvorsen &amp; Reyes LLP</b>Reviewing Counsel — Date</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p class="fm">Halvorsen &amp; Reyes LLP</p>
+  <p>This is a fictional sample document created for illustrative purposes, inspired by a dramatized story. It is not legal advice and creates no legal rights or obligations. Anyone navigating a real dispute of this kind should retain licensed family law counsel and a qualified forensic accountant in their jurisdiction.</p>
+</footer>
+
+<script>
+  const root = document.documentElement;
+  const btn = document.getElementById('themeToggle');
+  const icon = document.getElementById('themeIcon');
+  const label = document.getElementById('themeLabel');
+
+  function applyTheme(t){
+    root.setAttribute('data-theme', t);
+    icon.textContent = t === 'dark' ? '☀️' : '🌙';
+    label.textContent = t === 'dark' ? 'Light' : 'Dark';
+    try { localStorage.setItem('theme', t); } catch(e) {}
+  }
+  let saved = null;
+  try { saved = localStorage.getItem('theme'); } catch(e) {}
+  applyTheme(saved === 'dark' ? 'dark' : 'light'); // defaults to light unless the visitor already chose dark
+
+  btn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  const sizes = [0.9, 1, 1.1, 1.22];
+  let idx = 1;
+  try {
+    const savedIdx = parseInt(localStorage.getItem('fsIdx'), 10);
+    if (!isNaN(savedIdx) && savedIdx >= 0 && savedIdx < sizes.length) idx = savedIdx;
+  } catch(e) {}
+  function applyScale(){
+    document.documentElement.style.fontSize = (sizes[idx] * 100) + '%';
+    try { localStorage.setItem('fsIdx', idx); } catch(e) {}
+  }
+  applyScale();
+  document.getElementById('fsUp').addEventListener('click', function(){ idx = Math.min(idx+1, sizes.length-1); applyScale(); });
+  document.getElementById('fsDown').addEventListener('click', function(){ idx = Math.max(idx-1, 0); applyScale(); });
+  document.getElementById('fsReset').addEventListener('click', function(){ idx = 1; applyScale(); });
+</script>
+
+</body>
+</html>
